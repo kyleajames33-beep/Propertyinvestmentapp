@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshot Guide - Property Investment App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f9fafb;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .intro {
+            color: #6b7280;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-size: 22px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #374151;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .requirements {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .requirements h3 {
+            color: #1e40af;
+            margin-top: 0;
+        }
+
+        .requirements ul {
+            margin-left: 20px;
+            color: #1e40af;
+        }
+
+        .requirements li {
+            margin-bottom: 8px;
+        }
+
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning p {
+            color: #92400e;
+            margin: 0;
+        }
+
+        .screenshot-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .spec-card {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .spec-card h4 {
+            color: #2563eb;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .spec-card ul {
+            list-style: none;
+            color: #4b5563;
+        }
+
+        .spec-card li {
+            padding: 5px 0;
+            font-size: 14px;
+        }
+
+        .spec-card li strong {
+            color: #1f2937;
+            display: inline-block;
+            width: 100px;
+        }
+
+        ol {
+            margin-left: 25px;
+            color: #4b5563;
+        }
+
+        ol li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin-left: 25px;
+            color: #4b5563;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background: #f3f4f6;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #dc2626;
+        }
+
+        .checklist {
+            background: #f0fdf4;
+            border: 2px solid #22c55e;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .checklist h3 {
+            color: #166534;
+            margin-top: 0;
+        }
+
+        .checklist ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li::before {
+            content: "☐ ";
+            color: #22c55e;
+            font-size: 18px;
+            margin-right: 8px;
+        }
+
+        .tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tool-card {
+            background: #fefce8;
+            border: 1px solid #fde047;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .tool-card h4 {
+            color: #854d0e;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .tool-card p {
+            color: #713f12;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        strong {
+            color: #1f2937;
+        }
+
+        .tip {
+            background: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .tip p {
+            color: #065f46;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .tip strong {
+            color: #047857;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📸 App Store Screenshot Guide</h1>
+        <p class="intro">
+            High-quality screenshots are crucial for app store listings. This guide will help you capture the perfect screenshots for both iOS App Store and Google Play Store submissions.
+        </p>
+
+        <!-- Requirements Section -->
+        <div class="section">
+            <h2>📋 Screenshot Requirements</h2>
+
+            <div class="screenshot-specs">
+                <div class="spec-card">
+                    <h4>📱 iOS App Store</h4>
+                    <ul>
+                        <li><strong>iPhone:</strong> 1290 × 2796 px (iPhone 15 Pro Max)</li>
+                        <li><strong>Alt:</strong> 1284 × 2778 px (iPhone 14 Pro Max)</li>
+                        <li><strong>Alt:</strong> 1242 × 2688 px (iPhone 11 Pro Max)</li>
+                        <li><strong>iPad:</strong> 2048 × 2732 px (12.9" iPad Pro)</li>
+                        <li><strong>Minimum:</strong> 3-10 screenshots</li>
+                        <li><strong>Format:</strong> PNG or JPEG</li>
+                    </ul>
+                </div>
+
+                <div class="spec-card">
+                    <h4>🤖 Google Play Store</h4>
+                    <ul>
+                        <li><strong>Phone:</strong> 1080 × 1920 px minimum</li>
+                        <li><strong>Tablet:</strong> 1920 × 1080 px (landscape)</li>
+                        <li><strong>Minimum:</strong> 2-8 screenshots</li>
+                        <li><strong>Maximum:</strong> 8 screenshots</li>
+                        <li><strong>Format:</strong> PNG or JPEG</li>
+                        <li><strong>File size:</strong> Max 8MB each</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning">
+                <p><strong>⚠️ Important:</strong> Both stores recommend showing actual app functionality. Avoid heavily stylized mockups that misrepresent the actual user experience.</p>
+            </div>
+        </div>
+
+        <!-- What to Screenshot Section -->
+        <div class="section">
+            <h2>📷 What to Screenshot</h2>
+
+            <h3>Recommended Screenshots (in order):</h3>
+            <ol>
+                <li>
+                    <strong>Stage 1: Financial Calculator - Empty State</strong>
+                    <ul>
+                        <li>Shows the main interface users will see first</li>
+                        <li>Clean, professional input form</li>
+                        <li>Demonstrates ease of use</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Stage 1: Financial Calculator - Filled with Sample Data</strong>
+                    <ul>
+                        <li>Use realistic Australian property values ($800,000 property)</li>
+                        <li>Shows calculated results (borrowing capacity, LMI, etc.)</li>
+                        <li>Displays the summary card with all metrics</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Stage 2: Suburb Comparison - Cards View</strong>
+                    <ul>
+                        <li>Add 3-4 suburbs with varied scores (high, medium, low)</li>
+                        <li>Shows colorful score badges</li>
+                        <li>Demonstrates comparison functionality</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Stage 2: Suburb Comparison - Table View</strong>
+                    <ul>
+                        <li>Toggle to table view</li>
+                        <li>Shows compact data comparison</li>
+                        <li>Demonstrates alternative viewing option</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Stage 2: Add Suburb Form</strong>
+                    <ul>
+                        <li>Shows data entry interface</li>
+                        <li>Demonstrates input fields and validation</li>
+                        <li>Optional: Include helper text</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <div class="tip">
+                <p><strong>💡 Pro Tip:</strong> Add text overlays in a separate image editor (Canva, Photoshop) to highlight key features like "Calculate Your Borrowing Capacity" or "Compare 20+ Suburbs". This is optional but can improve conversion.</p>
+            </div>
+        </div>
+
+        <!-- How to Capture Section -->
+        <div class="section">
+            <h2>🛠️ How to Capture Screenshots</h2>
+
+            <h3>Method 1: Real Device (Recommended)</h3>
+            <ol>
+                <li>Open the app on your iPhone or Android device</li>
+                <li>Navigate to the desired screen</li>
+                <li>Take a screenshot:
+                    <ul>
+                        <li><strong>iPhone (Face ID):</strong> Press Side Button + Volume Up</li>
+                        <li><strong>iPhone (Home Button):</strong> Press Home + Power</li>
+                        <li><strong>Android:</strong> Press Power + Volume Down</li>
+                    </ul>
+                </li>
+                <li>Screenshots are automatically saved to Photos/Gallery</li>
+                <li>Transfer to computer via AirDrop, Google Photos, or USB</li>
+            </ol>
+
+            <h3>Method 2: Browser DevTools (Desktop)</h3>
+            <ol>
+                <li>Open <code>index.html</code> in Chrome or Edge</li>
+                <li>Press <strong>F12</strong> to open DevTools</li>
+                <li>Click the <strong>Device Toggle</strong> icon (or press Ctrl+Shift+M)</li>
+                <li>Select device from dropdown:
+                    <ul>
+                        <li>iPhone 14 Pro Max (1290 × 2796)</li>
+                        <li>Pixel 7 (1080 × 2400)</li>
+                    </ul>
+                </li>
+                <li>Navigate to the desired screen in the app</li>
+                <li>Right-click on the device frame → <strong>Capture screenshot</strong></li>
+                <li>Or use browser screenshot tool: Ctrl+Shift+P → type "screenshot" → select "Capture full size screenshot"</li>
+            </ol>
+
+            <div class="tip">
+                <p><strong>💡 DevTools Tip:</strong> If the screenshot resolution doesn't match app store requirements, you can set custom dimensions in DevTools. Click "Edit" → "Add custom device" → enter exact pixel dimensions required.</p>
+            </div>
+
+            <h3>Method 3: Online Tools</h3>
+            <div class="tools">
+                <div class="tool-card">
+                    <h4>📱 MockUPhone</h4>
+                    <p>Upload screenshots and add device frames. Free for basic use.</p>
+                </div>
+                <div class="tool-card">
+                    <h4>🖼️ Screely</h4>
+                    <p>Add browser chrome and backgrounds to screenshots. Good for desktop views.</p>
+                </div>
+                <div class="tool-card">
+                    <h4>🎨 Canva</h4>
+                    <p>Create custom app store graphics with text overlays and branding.</p>
+                </div>
+                <div class="tool-card">
+                    <h4>📲 AppMockUp</h4>
+                    <p>Professional device mockup generator with various templates.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Data Section -->
+        <div class="section">
+            <h2>📊 Sample Data for Screenshots</h2>
+
+            <h3>Stage 1 - Financial Calculator</h3>
+            <p>Use these realistic values for compelling screenshots:</p>
+            <ul>
+                <li><strong>Current Property Value:</strong> $800,000</li>
+                <li><strong>Outstanding Loan:</strong> $520,000</li>
+                <li><strong>Annual Income:</strong> $120,000</li>
+                <li><strong>Monthly Expenses:</strong> $4,500</li>
+                <li><strong>Other Debts:</strong> $15,000</li>
+                <li><strong>Cash Savings:</strong> $50,000</li>
+                <li><strong>Investment Strategy:</strong> Balanced</li>
+            </ul>
+            <p><em>This produces attractive results: ~$174,000 usable equity, ~$581,000 borrowing capacity, ~$705,000 max purchase price</em></p>
+
+            <h3>Stage 2 - Suburb Comparison</h3>
+            <p>Add these 4 suburbs for varied scores:</p>
+
+            <div style="margin-top: 20px;">
+                <strong>1. Parramatta, NSW</strong>
+                <ul style="margin-top: 5px;">
+                    <li>Median Price: $850,000 | Yield: 3.5% | Growth: 4.5%</li>
+                    <li>Vacancy: 2.0% | Distance: 23km</li>
+                    <li><em>Score: ~75 (High)</em></li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 15px;">
+                <strong>2. Penrith, NSW</strong>
+                <ul style="margin-top: 5px;">
+                    <li>Median Price: $680,000 | Yield: 4.2% | Growth: 5.8%</li>
+                    <li>Vacancy: 1.8% | Distance: 50km</li>
+                    <li><em>Score: ~82 (High)</em></li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 15px;">
+                <strong>3. Castle Hill, NSW</strong>
+                <ul style="margin-top: 5px;">
+                    <li>Median Price: $920,000 | Yield: 2.8% | Growth: 3.2%</li>
+                    <li>Vacancy: 2.5% | Distance: 30km</li>
+                    <li><em>Score: ~58 (Medium)</em></li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 15px;">
+                <strong>4. Blacktown, NSW</strong>
+                <ul style="margin-top: 5px;">
+                    <li>Median Price: $640,000 | Yield: 4.5% | Growth: 4.8%</li>
+                    <li>Vacancy: 2.2% | Distance: 35km</li>
+                    <li><em>Score: ~78 (High)</em></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Editing Section -->
+        <div class="section">
+            <h2>✏️ Editing Screenshots (Optional)</h2>
+
+            <p>While app stores prefer unmodified screenshots, you can enhance them:</p>
+
+            <h3>Allowed Enhancements:</h3>
+            <ul>
+                <li>Add text overlays highlighting key features</li>
+                <li>Add device frames (iPhone/Android mockups)</li>
+                <li>Add subtle backgrounds (gradients, colors)</li>
+                <li>Crop/resize to meet exact store requirements</li>
+                <li>Add app name/logo at the top</li>
+            </ul>
+
+            <h3>Not Allowed:</h3>
+            <ul>
+                <li>Showing features that don't exist in the app</li>
+                <li>Heavily photoshopping/altering the UI</li>
+                <li>Using competitor app screenshots</li>
+                <li>Misleading functionality claims</li>
+            </ul>
+
+            <div class="tip">
+                <p><strong>💡 Recommendation:</strong> For v1.1 release, use clean, unedited screenshots. You can always update them later with enhanced versions.</p>
+            </div>
+        </div>
+
+        <!-- Naming Section -->
+        <div class="section">
+            <h2>📁 File Naming & Organization</h2>
+
+            <p>Organize screenshots in a dedicated folder:</p>
+
+            <code style="display: block; padding: 15px; background: #1f2937; color: #f9fafb; border-radius: 6px; margin: 20px 0;">
+/screenshots/<br>
+├── ios/<br>
+│   ├── 01-stage1-empty.png<br>
+│   ├── 02-stage1-filled.png<br>
+│   ├── 03-stage2-cards.png<br>
+│   ├── 04-stage2-table.png<br>
+│   └── 05-stage2-form.png<br>
+└── android/<br>
+    ├── 01-stage1-empty.png<br>
+    ├── 02-stage1-filled.png<br>
+    ├── 03-stage2-cards.png<br>
+    ├── 04-stage2-table.png<br>
+    └── 05-stage2-form.png
+            </code>
+
+            <div class="tip">
+                <p><strong>💡 Tip:</strong> Number your screenshots (01, 02, 03...) so they upload in the correct order to app stores.</p>
+            </div>
+        </div>
+
+        <!-- Final Checklist -->
+        <div class="checklist">
+            <h3>✅ Pre-Submission Checklist</h3>
+            <ul>
+                <li>All screenshots are correct dimensions for target store</li>
+                <li>Screenshots show real, working app functionality</li>
+                <li>At least 3 screenshots for iOS, 2 for Android</li>
+                <li>Screenshots are in PNG or JPEG format</li>
+                <li>File sizes are under 8MB</li>
+                <li>Screenshots are numbered in display order</li>
+                <li>No personal/sensitive data visible in screenshots</li>
+                <li>UI looks polished (no console errors visible, etc.)</li>
+                <li>Screenshots demonstrate key value propositions</li>
+                <li>Both Stage 1 and Stage 2 are represented</li>
+            </ul>
+        </div>
+
+        <div class="section" style="background: #f0fdf4; border: 2px solid #22c55e;">
+            <h2 style="color: #166534;">🎯 Quick Start: 5-Minute Screenshot Capture</h2>
+            <ol>
+                <li>Open <code>index.html</code> in Chrome with DevTools</li>
+                <li>Set device to iPhone 14 Pro Max (1290 × 2796)</li>
+                <li>Enter the sample Stage 1 data listed above</li>
+                <li>Capture screenshot: Stage 1 filled view</li>
+                <li>Click "Stage 2: Suburbs" navigation button</li>
+                <li>Add the 4 sample suburbs listed above</li>
+                <li>Capture screenshot: Stage 2 cards view</li>
+                <li>Click table toggle</li>
+                <li>Capture screenshot: Stage 2 table view</li>
+                <li>Done! You now have 3 core screenshots for app store submission</li>
+            </ol>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 40px 20px; color: #6b7280;">
+        <p>Need help? Refer to <a href="_docs/07-RELEASE-PROCESS.md" style="color: #2563eb;">07-RELEASE-PROCESS.md</a> for complete submission guide.</p>
+    </div>
+</body>
+</html>

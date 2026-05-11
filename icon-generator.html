@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Investment App - Icon Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f9fafb;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .intro {
+            color: #6b7280;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .icon-item {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .icon-item h3 {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .icon-wrapper {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .size-label {
+            font-size: 12px;
+            color: #9ca3af;
+            font-weight: 500;
+        }
+
+        .instructions {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .instructions h2 {
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            line-height: 1.8;
+            color: #4b5563;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+        }
+
+        .instructions strong {
+            color: #1f2937;
+        }
+
+        .instructions code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #dc2626;
+        }
+
+        .download-section {
+            background: #eff6ff;
+            border: 2px solid #2563eb;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .download-section h2 {
+            color: #1e40af;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .download-section p {
+            color: #1e40af;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .download-section a {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .download-section a:hover {
+            background: #1d4ed8;
+        }
+
+        #downloadSVG {
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Property Investment App - Icon Set</h1>
+        <p class="intro">
+            Below are all required icon sizes for your PWA app store submission.
+            Right-click each icon and "Save image as..." or use the quick download options below.
+        </p>
+
+        <div class="download-section">
+            <h2>🚀 Quick Icon Generation Options</h2>
+            <p><strong>Option 1 (Easiest):</strong> Use an online PWA icon generator</p>
+            <ol>
+                <li>Right-click the 512x512 icon below and save it</li>
+                <li>Go to <a href="https://www.pwabuilder.com/imageGenerator" target="_blank">PWABuilder Icon Generator</a></li>
+                <li>Upload the 512x512 PNG</li>
+                <li>Download the complete icon set</li>
+                <li>Extract to the <code>/icons/</code> folder</li>
+            </ol>
+            <br>
+            <p><strong>Option 2 (Screenshot method):</strong> Screenshot each icon below</p>
+            <ol>
+                <li>Use Windows Snipping Tool or Mac Screenshot (Cmd+Shift+4)</li>
+                <li>Carefully screenshot each icon at the exact size shown</li>
+                <li>Save as PNG with the filename format: <code>icon-72x72.png</code></li>
+                <li>Place all icons in the <code>/icons/</code> folder</li>
+            </ol>
+            <br>
+            <button id="downloadSVG" style="background: #10b981; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                📥 Download Base SVG (512x512)
+            </button>
+        </div>
+
+        <div class="instructions">
+            <h2>📋 Required Icon Sizes</h2>
+            <ol>
+                <li><strong>72x72</strong> - iOS/Android small</li>
+                <li><strong>96x96</strong> - Android devices</li>
+                <li><strong>128x128</strong> - Chrome Web Store</li>
+                <li><strong>144x144</strong> - Windows tiles</li>
+                <li><strong>152x152</strong> - iOS devices</li>
+                <li><strong>192x192</strong> - Android (standard)</li>
+                <li><strong>384x384</strong> - Android (high-res)</li>
+                <li><strong>512x512</strong> - Android splash screen, PWA install</li>
+            </ol>
+        </div>
+
+        <h2 style="margin-bottom: 30px; color: #1f2937;">Icon Preview - All Sizes</h2>
+
+        <div class="icon-grid">
+            <!-- 72x72 -->
+            <div class="icon-item">
+                <h3>icon-72x72.png</h3>
+                <div class="icon-wrapper">
+                    <svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="72" height="72" fill="#2563eb" rx="16"/>
+                        <path d="M36 18L18 32v24h12V44h12v12h12V32L36 18z" fill="white"/>
+                        <circle cx="36" cy="28" r="2" fill="#fbbf24"/>
+                    </svg>
+                </div>
+                <div class="size-label">72 × 72 pixels</div>
+            </div>
+
+            <!-- 96x96 -->
+            <div class="icon-item">
+                <h3>icon-96x96.png</h3>
+                <div class="icon-wrapper">
+                    <svg width="96" height="96" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="96" height="96" fill="#2563eb" rx="21"/>
+                        <path d="M48 24L24 42.67v32h16V58.67h16v16h16v-32L48 24z" fill="white"/>
+                        <circle cx="48" cy="37.33" r="2.67" fill="#fbbf24"/>
+                    </svg>
+                </div>
+                <div class="size-label">96 × 96 pixels</div>
+            </div>
+
+            <!-- 128x128 -->
+            <div class="icon-item">
+                <h3>icon-128x128.png</h3>
+                <div class="icon-wrapper">
+                    <svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="128" height="128" fill="#2563eb" rx="28"/>
+                        <path d="M64 32L32 56.89v42.67h21.33V78.22h21.34v21.34H96V56.89L64 32z" fill="white"/>
+                        <circle cx="64" cy="49.78" r="3.56" fill="#fbbf24"/>
+                    </svg>
+                </div>
+                <div class="size-label">128 × 128 pixels</div>
+            </div>
+
+            <!-- 144x144 -->
+            <div class="icon-item">
+                <h3>icon-144x144.png</h3>
+                <div class="icon-wrapper">
+                    <svg width="144" height="144" viewBox="0 0 144 144" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="144" height="144" fill="#2563eb" rx="32"/>
+                        <path d="M72 36L36 64v48h24V88h24v24h24V64L72 36z" fill="white"/>
+                        <circle cx="72" cy="56" r="4" fill="#fbbf24"/>
+                    </svg>
+                </div>
+                <div class="size-label">144 × 144 pixels</div>
+            </div>
+
+            <!-- 152x152 -->
+            <div class="icon-item">
+                <h3>icon-152x152.png</h3>
+                <div class="icon-wrapper">
+                    <svg width="152" height="152" viewBox="0 0 152 152" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="152" height="152" fill="#2563eb" rx="33"/>
+                        <path d="M76 38L38 67.56v50.67h25.33V92.89h25.34v25.34H114V67.56L76 38z" fill="white"/>
+                        <circle cx="76" cy="59.11" r="4.22" fill="#fbbf24"/>
+                    </svg>
+                </div>
+                <div class="size-label">152 × 152 pixels</div>
+            </div>
+
+            <!-- 192x192 -->
+            <div class="icon-item">
+                <h3>icon-192x192.png</h3>
+                <div class="icon-wrapper">
+                    <svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="192" height="192" fill="#2563eb" rx="42"/>
+                        <path d="M96 48L48 85.33v64h32V117.33h32v32h32v-64L96 48z" fill="white"/>
+                        <circle cx="96" cy="74.67" r="5.33" fill="#fbbf24"/>
+                    </svg>
+                </div>
+                <div class="size-label">192 × 192 pixels</div>
+            </div>
+
+            <!-- 384x384 -->
+            <div class="icon-item">
+                <h3>icon-384x384.png</h3>
+                <div class="icon-wrapper">
+                    <svg width="200" height="200" viewBox="0 0 384 384" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="384" height="384" fill="#2563eb" rx="84"/>
+                        <path d="M192 96L96 170.67v128h64V234.67h64v64h64v-128L192 96z" fill="white"/>
+                        <circle cx="192" cy="149.33" r="10.67" fill="#fbbf24"/>
+                    </svg>
+                </div>
+                <div class="size-label">384 × 384 pixels (shown smaller)</div>
+            </div>
+
+            <!-- 512x512 -->
+            <div class="icon-item">
+                <h3>icon-512x512.png</h3>
+                <div class="icon-wrapper">
+                    <svg width="200" height="200" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="512" height="512" fill="#2563eb" rx="112"/>
+                        <path d="M256 128L128 227.56v170.67h85.33V312.89h85.34v85.34H384V227.56L256 128z" fill="white"/>
+                        <circle cx="256" cy="199.11" r="14.22" fill="#fbbf24"/>
+                    </svg>
+                </div>
+                <div class="size-label">512 × 512 pixels (shown smaller)</div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h2>🎨 Design Details</h2>
+            <ul style="list-style: none; line-height: 2;">
+                <li>🏠 <strong>Icon:</strong> Simple house/property symbol</li>
+                <li>🔵 <strong>Background:</strong> Primary blue (#2563eb) - matches app theme</li>
+                <li>⚪ <strong>House:</strong> White for contrast and clarity</li>
+                <li>⭐ <strong>Accent:</strong> Golden dot (#fbbf24) representing investment/value</li>
+                <li>📐 <strong>Corners:</strong> Rounded (22% of size) for modern, friendly look</li>
+                <li>✅ <strong>Maskable:</strong> Design has 10% safe zone for maskable icons</li>
+            </ul>
+        </div>
+
+        <div class="instructions">
+            <h2>📦 After Generating Icons</h2>
+            <ol>
+                <li>Place all 8 PNG files in the <code>/icons/</code> folder</li>
+                <li>Filenames must match exactly:
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li><code>icon-72x72.png</code></li>
+                        <li><code>icon-96x96.png</code></li>
+                        <li><code>icon-128x128.png</code></li>
+                        <li><code>icon-144x144.png</code></li>
+                        <li><code>icon-152x152.png</code></li>
+                        <li><code>icon-192x192.png</code></li>
+                        <li><code>icon-384x384.png</code></li>
+                        <li><code>icon-512x512.png</code></li>
+                    </ul>
+                </li>
+                <li>No changes needed to <code>manifest.json</code> - paths are already configured</li>
+                <li>Test PWA install to verify icons appear correctly</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Download SVG functionality
+        document.getElementById('downloadSVG').addEventListener('click', function() {
+            // Create the 512x512 SVG
+            const svgContent = `<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+    <rect width="512" height="512" fill="#2563eb" rx="112"/>
+    <path d="M256 128L128 227.56v170.67h85.33V312.89h85.34v85.34H384V227.56L256 128z" fill="white"/>
+    <circle cx="256" cy="199.11" r="14.22" fill="#fbbf24"/>
+</svg>`;
+
+            // Create blob and download
+            const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'property-app-icon-512x512.svg';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            alert('SVG downloaded! You can now:\n\n1. Upload to https://www.pwabuilder.com/imageGenerator\n2. Or convert to PNG using an online SVG-to-PNG converter\n3. Or open in image editor (Photoshop, GIMP, etc.) and export as PNG');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,473 @@
+/* ==========================================
+   STAGE 2: SUBURB COMPARISON STYLES
+   ========================================== */
+
+/* Suburb Cards Grid */
+.suburb-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.suburb-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: var(--space-6);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.suburb-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: rgba(29, 78, 216, 0.15);
+}
+
+.suburb-card-header {
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--gray-100);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.suburb-card-title {
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: var(--space-1);
+  letter-spacing: -0.01em;
+}
+
+.suburb-card-location {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+}
+
+.suburb-card-metrics {
+  display: grid;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.suburb-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.suburb-metric:last-child {
+  border-bottom: none;
+}
+
+.suburb-metric-label {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.suburb-metric-value {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--gray-800);
+}
+
+.suburb-card-score {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+  color: white;
+  padding: var(--space-4);
+  border-radius: var(--border-radius);
+  text-align: center;
+  margin-bottom: var(--space-4);
+  box-shadow: 0 4px 6px -1px rgba(29, 78, 216, 0.25);
+}
+
+.suburb-card-score-label {
+  font-size: var(--text-sm);
+  opacity: 0.9;
+  margin-bottom: var(--space-1);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.suburb-card-score-value {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.suburb-card-hint {
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  margin: var(--space-2) 0 var(--space-4);
+  text-align: center;
+}
+
+.suburb-card-actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.suburb-card-actions button {
+  flex: 1;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+}
+
+/* Score color variants */
+.suburb-card-score.score-high {
+  background: linear-gradient(135deg, var(--success-green) 0%, #047857 100%);
+  box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.25);
+}
+
+.suburb-card-score.score-medium {
+  background: linear-gradient(135deg, var(--warning-amber) 0%, #b45309 100%);
+  box-shadow: 0 4px 6px -1px rgba(217, 119, 6, 0.25);
+}
+
+.suburb-card-score.score-low {
+  background: linear-gradient(135deg, var(--danger-red) 0%, #b91c1c 100%);
+  box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.25);
+}
+
+/* Suburb Table */
+.suburb-table-container {
+  overflow-x: auto;
+  margin-top: var(--space-6);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
+}
+
+.suburb-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.suburb-table th {
+  background: linear-gradient(180deg, var(--gray-50) 0%, var(--gray-100) 100%);
+  padding: var(--space-4);
+  text-align: left;
+  font-weight: 700;
+  color: var(--gray-700);
+  border-bottom: 2px solid var(--gray-200);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s ease;
+}
+
+.suburb-table th:hover {
+  background: linear-gradient(180deg, var(--gray-100) 0%, var(--gray-200) 100%);
+}
+
+.suburb-table td {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--gray-200);
+  font-size: var(--text-sm);
+  color: var(--gray-700);
+  transition: background 0.15s ease;
+}
+
+.suburb-table tr:last-child td {
+  border-bottom: none;
+}
+
+.suburb-table tr:hover td {
+  background: var(--gray-50);
+}
+
+.suburb-table-name {
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.suburb-table-score {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 999px;
+  font-weight: 700;
+  color: white;
+  font-size: var(--text-sm);
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.suburb-table-score.score-high {
+  background: linear-gradient(135deg, var(--success-green) 0%, #047857 100%);
+}
+
+.suburb-table-score.score-medium {
+  background: linear-gradient(135deg, var(--warning-amber) 0%, #b45309 100%);
+}
+
+.suburb-table-score.score-low {
+  background: linear-gradient(135deg, var(--danger-red) 0%, #b91c1c 100%);
+}
+
+/* Stage 3 - Location Intelligence */
+.location-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.location-amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-3);
+}
+
+.location-amenities-grid label {
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: calc(var(--border-radius) / 1.5);
+  border: 1.5px solid var(--gray-200);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-weight: 500;
+  color: var(--gray-700);
+  font-size: var(--text-sm);
+}
+
+.location-amenities-grid label:hover {
+  border-color: var(--primary-blue-light);
+  background: var(--primary-blue-soft);
+}
+
+.location-amenities-grid input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-blue);
+  cursor: pointer;
+}
+
+.location-results-card {
+  margin-top: var(--space-6);
+  padding: var(--space-8);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-lg);
+}
+
+.location-score-badge {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.02em;
+}
+
+.location-guidance {
+  font-size: var(--text-base);
+  color: var(--gray-600);
+  margin-bottom: var(--space-4);
+}
+
+.location-insights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-4) 0;
+}
+
+.insight-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: 999px;
+  background: var(--gray-100);
+  font-size: var(--text-sm);
+  color: var(--gray-700);
+  font-weight: 500;
+  border: 1px solid var(--gray-200);
+}
+
+.insight-chip .chip-value {
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.location-category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.category-card {
+  padding: var(--space-4);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.7);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.category-card:hover {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.category-card h4 {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-2);
+  color: var(--gray-800);
+  font-weight: 700;
+}
+
+.progress-track {
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--gray-200);
+  overflow: hidden;
+  margin: var(--space-2) 0;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-blue-light) 100%);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.location-context {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.location-context-card {
+  border: 1px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  padding: var(--space-4);
+  background: rgba(255, 255, 255, 0.7);
+  min-height: 150px;
+}
+
+.location-context-card h4 {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-2);
+  color: var(--gray-800);
+  font-weight: 700;
+}
+
+.location-context-card p {
+  color: var(--gray-600);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.location-last-analysis {
+  margin-top: var(--space-6);
+  border: 1px dashed var(--gray-300);
+  background: rgba(255, 255, 255, 0.5);
+  padding: var(--space-4);
+  border-radius: var(--border-radius);
+}
+
+.location-last-analysis h4 {
+  margin-bottom: var(--space-2);
+  color: var(--gray-800);
+  font-weight: 700;
+}
+
+.location-opportunities {
+  margin-top: var(--space-4);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-3);
+}
+
+.opportunity-card {
+  border: 1px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.7);
+  transition: box-shadow 0.2s ease;
+}
+
+.opportunity-card:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.opportunity-card h5 {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-2);
+  color: var(--gray-800);
+  font-weight: 700;
+}
+
+.opportunity-card p {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+.location-next-steps {
+  margin-top: var(--space-4);
+  border-top: 1px solid var(--gray-200);
+  padding-top: var(--space-4);
+}
+
+.location-next-steps h4 {
+  margin-bottom: var(--space-2);
+  color: var(--gray-800);
+  font-weight: 700;
+}
+
+.location-next-steps ul {
+  list-style: disc;
+  padding-left: var(--space-6);
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+.location-next-steps li {
+  margin-bottom: var(--space-2);
+}
+
+.suburb-table-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.suburb-table-actions button {
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-sm);
+}
+
+/* View Toggle Buttons */
+.view-toggle-btn {
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.view-toggle-btn.active {
+  opacity: 1;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 2px 4px rgba(29, 78, 216, 0.2);
+}
+
+.view-toggle-btn.active:hover {
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+}

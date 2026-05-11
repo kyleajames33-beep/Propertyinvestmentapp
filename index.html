@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Propology - Australian property investment planning tool. Calculate your investment capacity, compare suburbs, and manage your portfolio">
+  <title>Propology - Australian Property Investment Tool</title>
+
+  <!-- PWA Configuration -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Property Investor">
+  <link rel="apple-touch-icon" href="./icons/icon-192x192.png">
+
+  
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/stages.css">
+
+</head>
+<body>
+
+  <!-- ========================================
+       HEADER
+       ======================================== -->
+  <header class="header">
+    <h1>Propology</h1>
+    <p>Plan your Australian property investment journey</p>
+  </header>
+
+  <!-- ========================================
+       STAGE NAVIGATION
+       ======================================== -->
+  <nav class="stage-nav" style="background: white; border-bottom: 2px solid var(--gray-200); padding: var(--space-4) 0;">
+    <div class="container">
+      <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; justify-content: center;">
+        <button id="navStage1" class="btn btn-secondary btn-small stage-nav-btn active">
+          Stage 1: Financial
+        </button>
+        <button id="navStage2" class="btn btn-secondary btn-small stage-nav-btn">
+          Stage 2: Suburbs
+        </button>
+        <button id="navStage3" class="btn btn-secondary btn-small stage-nav-btn">
+          Stage 3: Location
+        </button>
+        <button id="navStage4" class="btn btn-secondary btn-small stage-nav-btn">
+          Stage 4: Professional Network
+        </button>
+        <button id="navStage5" class="btn btn-secondary btn-small stage-nav-btn">
+          Stage 5: Acquisition
+        </button>
+        <button id="navStage6" class="btn btn-secondary btn-small stage-nav-btn">
+          Stage 6: Portfolio
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================
+       MAIN CONTENT
+       ======================================== -->
+  <main class="container">
+
+    <!-- ========================================
+         STAGE 1: FINANCIAL FOUNDATION
+         ======================================== -->
+    <section id="stage1Section" class="stage-section">
+
+      <div class="stage-header">
+        <span class="stage-number">Stage 1 of 6</span>
+        <h2 class="stage-title">Financial Foundation</h2>
+        <p class="stage-description">
+          Calculate your investment capacity based on your current financial position
+        </p>
+      </div>
+
+      <div class="disclaimer-banner">
+        <strong>General information only.</strong> This calculator provides estimates for educational purposes. It is not financial product advice. Always consult a licensed mortgage broker and financial adviser before making investment decisions.
+      </div>
+
+      <div class="stage-top-grid">
+        <div class="insight-card">
+          <div class="insight-label">Borrowing Capacity</div>
+          <div id="insightBorrowing" class="insight-value">$0</div>
+          <div class="insight-pill-group" id="insightBorrowingSplit">
+            <span id="insightIndividualCapacity" class="insight-pill insight-pill--muted">Individual $0</span>
+            <span id="insightHouseholdCapacity" class="insight-pill insight-pill--highlight">Household $0</span>
+          </div>
+          <p class="insight-note">Updated instantly from your inputs</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label">Household Income</div>
+          <div id="insightHouseholdIncome" class="insight-value">$0</div>
+          <div class="insight-pill-group" id="insightIncomeSplit">
+            <span id="insightPrimaryIncome" class="insight-pill">You $0</span>
+            <span id="insightPartnerIncome" class="insight-pill insight-pill--muted">Partner $0</span>
+          </div>
+          <p class="insight-note">Combine incomes to boost servicing</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label">Deposit Readiness</div>
+          <div id="insightDeposit" class="insight-value">$0</div>
+          <p class="insight-note">Usable equity + savings</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-label">Strategy Focus</div>
+          <div id="insightStrategy" class="insight-value">Balanced</div>
+          <p id="insightStrategyNote" class="insight-note">Tailors suburb scoring</p>
+        </div>
+      </div>
+
+      <!-- Input Form -->
+      <form id="financialForm">
+
+        <div class="form-section">
+          <div class="form-section-header">
+            Income &amp; Assets
+          </div>
+          <div class="form-grid">
+
+            <!-- Current Property Value -->
+            <div class="form-group">
+              <label for="propertyValue" class="form-label">
+                Current Property Value
+              </label>
+              <input
+                type="number"
+                id="propertyValue"
+                class="form-input"
+                placeholder="e.g., 1070000"
+                min="0"
+                step="1000"
+                aria-describedby="propertyValueHelp"
+              >
+              <span id="propertyValueHelp" class="form-help-text">
+                Enter $0 if you don't own property yet
+              </span>
+            </div>
+
+            <!-- Outstanding Loan -->
+            <div class="form-group">
+              <label for="loanAmount" class="form-label">
+                Outstanding Loan Amount
+              </label>
+              <input
+                type="number"
+                id="loanAmount"
+                class="form-input"
+                placeholder="e.g., 770000"
+                min="0"
+                step="1000"
+                aria-describedby="loanAmountHelp"
+              >
+              <span id="loanAmountHelp" class="form-help-text">
+                How much you still owe on your mortgage
+              </span>
+            </div>
+
+            <!-- Annual Income -->
+            <div class="form-group">
+              <label for="annualIncome" class="form-label">
+                Annual Income (Gross)
+              </label>
+              <input
+                type="number"
+                id="annualIncome"
+                class="form-input"
+                placeholder="e.g., 150000"
+                min="0"
+                step="1000"
+                required
+                aria-required="true"
+                aria-describedby="annualIncomeHelp"
+              >
+              <span id="annualIncomeHelp" class="form-help-text">
+                Your total annual income before tax
+              </span>
+            </div>
+
+            <!-- Partner Income -->
+            <div class="form-group">
+              <label for="partnerIncome" class="form-label">
+                Partner's Annual Income
+              </label>
+              <input
+                type="number"
+                id="partnerIncome"
+                class="form-input"
+                placeholder="e.g., 95000"
+                min="0"
+                step="1000"
+                aria-describedby="partnerIncomeHelp"
+              >
+              <span id="partnerIncomeHelp" class="form-help-text">
+                Optional. Include if you plan to borrow together.
+              </span>
+            </div>
+
+            <!-- Cash Savings -->
+            <div class="form-group">
+              <label for="cashSavings" class="form-label">
+                Cash Savings Available
+              </label>
+              <input
+                type="number"
+                id="cashSavings"
+                class="form-input"
+                placeholder="e.g., 20000"
+                min="0"
+                step="1000"
+                aria-describedby="cashSavingsHelp"
+              >
+              <span id="cashSavingsHelp" class="form-help-text">
+                Cash available for deposit and costs
+              </span>
+            </div>
+
+            <!-- Investment Strategy -->
+            <div class="form-group">
+              <label for="investmentStrategy" class="form-label">
+                Preferred Investment Strategy
+              </label>
+              <select
+                id="investmentStrategy"
+                class="form-input"
+                aria-describedby="investmentStrategyHelp"
+              >
+                <option value="balanced" selected>Balanced (growth + income)</option>
+                <option value="growth">Growth focus (capital gains)</option>
+                <option value="cashflow">Cashflow focus (rental yield)</option>
+              </select>
+              <span id="investmentStrategyHelp" class="form-help-text">
+                We customise recommendations and suburb scoring based on this preference.
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-header">
+            Liabilities &amp; Living Costs
+          </div>
+          <div class="form-grid">
+
+            <!-- Monthly Expenses -->
+            <div class="form-group full-width">
+              <div class="expense-summary-row">
+                <div>
+                  <label class="form-label">
+                    Monthly Essentials
+                  </label>
+                  <p class="form-help-text">
+                    Break down your real-world costs so we can estimate servicing accurately.
+                  </p>
+                </div>
+                <div class="expense-total-display">
+                  <div class="expense-total-label">Total Monthly Spend</div>
+                  <div id="expenseTotalValue" class="expense-total-value">$0</div>
+                </div>
+              </div>
+              <button
+                type="button"
+                id="expenseToggleBtn"
+                class="expense-toggle"
+                aria-expanded="false"
+                aria-controls="expenseBreakdown"
+              >
+                Show breakdown
+              </button>
+              <div
+                id="expenseBreakdown"
+                class="expense-breakdown hidden"
+                aria-hidden="true"
+              >
+                <div class="expense-grid">
+                  <div class="expense-category">
+                    <label for="expenseHousing">Housing</label>
+                    <input
+                      type="number"
+                      id="expenseHousing"
+                      class="form-input"
+                      placeholder="e.g., 2200"
+                      min="0"
+                      step="50"
+                      data-expense-input="true"
+                    >
+                    <span class="form-help-text">Rent or mortgage, strata, council rates.</span>
+                  </div>
+                  <div class="expense-category">
+                    <label for="expenseUtilities">Utilities</label>
+                    <input
+                      type="number"
+                      id="expenseUtilities"
+                      class="form-input"
+                      placeholder="e.g., 450"
+                      min="0"
+                      step="25"
+                      data-expense-input="true"
+                    >
+                    <span class="form-help-text">Electricity, gas, water, internet, phone.</span>
+                  </div>
+                  <div class="expense-category">
+                    <label for="expenseTransport">Transport</label>
+                    <input
+                      type="number"
+                      id="expenseTransport"
+                      class="form-input"
+                      placeholder="e.g., 600"
+                      min="0"
+                      step="25"
+                      data-expense-input="true"
+                    >
+                    <span class="form-help-text">Car repayments, rego, fuel, insurance, public transport.</span>
+                  </div>
+                  <div class="expense-category">
+                    <label for="expenseFood">Food &amp; Groceries</label>
+                    <input
+                      type="number"
+                      id="expenseFood"
+                      class="form-input"
+                      placeholder="e.g., 900"
+                      min="0"
+                      step="25"
+                      data-expense-input="true"
+                    >
+                    <span class="form-help-text">Groceries, dining out, takeaway.</span>
+                  </div>
+                  <div class="expense-category">
+                    <label for="expenseInsurance">Insurance</label>
+                    <input
+                      type="number"
+                      id="expenseInsurance"
+                      class="form-input"
+                      placeholder="e.g., 280"
+                      min="0"
+                      step="25"
+                      data-expense-input="true"
+                    >
+                    <span class="form-help-text">Health, life, income, home and contents.</span>
+                  </div>
+                  <div class="expense-category">
+                    <label for="expensePersonal">Personal &amp; Lifestyle</label>
+                    <input
+                      type="number"
+                      id="expensePersonal"
+                      class="form-input"
+                      placeholder="e.g., 500"
+                      min="0"
+                      step="25"
+                      data-expense-input="true"
+                    >
+                    <span class="form-help-text">Entertainment, subscriptions, gym, clothing.</span>
+                  </div>
+                  <div class="expense-category">
+                    <label for="expenseOther">Other / Family</label>
+                    <input
+                      type="number"
+                      id="expenseOther"
+                      class="form-input"
+                      placeholder="e.g., 400"
+                      min="0"
+                      step="25"
+                      data-expense-input="true"
+                    >
+                    <span class="form-help-text">Childcare, education, medical, misc buffers.</span>
+                  </div>
+                </div>
+              </div>
+              <input
+                type="hidden"
+                id="monthlyExpenses"
+                min="0"
+                step="50"
+                aria-describedby="monthlyExpensesHelp"
+              >
+              <span id="monthlyExpensesHelp" class="form-help-text">
+                We auto-calculate this total and feed it into the borrowing capacity formula.
+              </span>
+              <div id="expenseQuickSummary" class="expense-summary-inline expense-summary-inline--empty">
+                Add amounts above to reveal where your cash goes each month.
+              </div>
+            </div>
+
+            <!-- Other Debts -->
+            <div class="form-group">
+              <label for="otherDebts" class="form-label">
+                Other Loan Commitments
+              </label>
+              <input
+                type="number"
+                id="otherDebts"
+                class="form-input"
+                placeholder="e.g., 15000"
+                min="0"
+                step="1000"
+                aria-describedby="otherDebtsHelp"
+              >
+              <span id="otherDebtsHelp" class="form-help-text">
+                Credit cards, car loans, personal loans (annual)
+              </span>
+            </div>
+
+            <!-- HECS / HELP -->
+            <div class="form-group">
+              <label class="form-label">
+                HECS / HELP
+              </label>
+              <label class="toggle-control">
+                <input type="checkbox" id="hasHecs">
+                <span>Yes, include my HECS/HELP repayments</span>
+              </label>
+              <span class="form-help-text">
+                We’ll factor the monthly repayment into your servicing.
+              </span>
+              <div id="hecsFields" class="hecs-fields hidden">
+                <div>
+                  <label for="hecsBalance" class="form-label">
+                    HECS/HELP Balance
+                  </label>
+                  <input
+                    type="number"
+                    id="hecsBalance"
+                    class="form-input"
+                    placeholder="e.g., 18000"
+                    min="0"
+                    step="500"
+                  >
+                </div>
+                <div>
+                  <label for="hecsMonthlyRepayment" class="form-label">
+                    Monthly Repayment
+                  </label>
+                  <input
+                    type="number"
+                    id="hecsMonthlyRepayment"
+                    class="form-input"
+                    placeholder="e.g., 350"
+                    min="0"
+                    step="50"
+                  >
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </form>
+
+      <!-- Calculate Button -->
+      <button type="button" id="calculateBtn" class="btn btn-primary btn-block">
+        Calculate My Investment Capacity
+      </button>
+
+      <!-- Summary Card (Hidden by default) -->
+      <div id="summaryCard" class="summary-card hidden">
+        <div
+          id="summaryLoading"
+          class="summary-loading"
+          aria-hidden="true"
+        >
+          <span class="summary-loading-spinner" aria-hidden="true"></span>
+          <span aria-live="polite">Updating calculations...</span>
+        </div>
+        <h3 class="summary-card-title">Your Investment Capacity</h3>
+
+        <div class="summary-grid">
+          <div class="summary-item">
+            <div class="summary-label">
+              <span>Total Equity</span>
+            </div>
+            <div id="totalEquityValue" class="summary-value">$0</div>
+          </div>
+
+          <div class="summary-item">
+            <div class="summary-label">
+              <span>Usable Equity (80% LVR)</span>
+            </div>
+            <div id="usableEquityValue" class="summary-value">$0</div>
+          </div>
+
+          <div class="summary-item">
+            <div class="summary-label">
+              <span>Household Borrowing Power</span>
+            </div>
+            <div id="borrowingCapacityValue" class="summary-value">$0</div>
+            <p id="householdBorrowingNote" class="summary-subtext">
+              You $0 + Partner $0
+            </p>
+          </div>
+
+          <div class="summary-item">
+            <div class="summary-label">
+              <span>Individual Borrowing Capacity</span>
+            </div>
+            <div id="individualBorrowingValue" class="summary-value">$0</div>
+            <p id="individualBorrowingNote" class="summary-subtext">
+              Solo application benchmark.
+            </p>
+          </div>
+
+          <div class="summary-item">
+            <div class="summary-label">
+              <span>Deposit Available</span>
+            </div>
+            <div id="depositValue" class="summary-value">$0</div>
+            <p id="depositBreakdown" class="summary-subtext">Add equity or savings to increase this amount.</p>
+          </div>
+
+          <div class="summary-item summary-item--full">
+            <div class="summary-label">
+              <span>Expense Breakdown</span>
+            </div>
+            <div id="expenseBreakdownSummary" class="summary-subtext">
+              Add monthly expenses to see category insights.
+            </div>
+          </div>
+
+          <div class="summary-item">
+            <div class="summary-label">
+              <span>HECS / HELP Impact</span>
+            </div>
+            <div id="hecsSummaryValue" class="summary-value">Not applied</div>
+            <p id="hecsSummaryNote" class="summary-subtext">
+              Toggle HECS/HELP to include repayments.
+            </p>
+          </div>
+
+          <div class="summary-item summary-item--full">
+            <div class="summary-label">
+              <span>Recommended Purchase Range</span>
+            </div>
+            <div id="purchaseRangeValue" class="summary-value">$0 - $0</div>
+            <p id="purchaseRangeNote" class="summary-subtext">
+              Enter your financial details to see a tailored range.
+            </p>
+          </div>
+
+          <div class="summary-item">
+            <div class="summary-label">
+              <span>Loan-to-Value Ratio</span>
+            </div>
+            <div id="lvrValue" class="summary-value">0%</div>
+            <p id="lmiMessage" class="summary-subtext">Add deposit details to calculate LVR.</p>
+          </div>
+
+          <div class="summary-item">
+            <div class="summary-label">
+              <span>Estimated LMI</span>
+            </div>
+            <div id="lmiValue" class="summary-value">$0</div>
+            <p id="lmiNote" class="summary-subtext">No LMI calculated yet.</p>
+          </div>
+
+          <div class="summary-item summary-item--full">
+            <div class="summary-label">
+              <span>Investment Strategy</span>
+            </div>
+            <div id="strategySummary" class="summary-value">Balanced</div>
+            <p id="strategySummaryNote" class="summary-subtext">
+              Choose a strategy to tailor suburb scoring and next-step guidance.
+            </p>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <span id="statusBadge" class="status-badge">
+            Ready to invest
+          </span>
+        </div>
+
+        <div class="summary-actions">
+          <button type="button" id="emailResultsBtn" class="btn btn-secondary">
+            Email My Results
+          </button>
+          <button type="button" id="printReportBtn" class="btn btn-secondary">
+            Download PDF Report
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================
+         STAGE 2: SUBURB COMPARISON
+         ======================================== -->
+    <section id="stage2Section" class="stage-section" style="display: none;">
+
+      <div class="stage-header">
+        <span class="stage-number">Stage 2 of 6</span>
+        <h2 class="stage-title">Suburb Comparison</h2>
+        <p class="stage-description">
+          Compare suburbs to find the best investment opportunities
+        </p>
+      </div>
+
+      <!-- Add Suburb Form -->
+      <div class="card" style="margin-bottom: var(--space-6);">
+        <h3 style="margin-bottom: var(--space-4); color: var(--gray-800);">
+          Add Suburb to Compare
+        </h3>
+
+        <form id="suburbForm" class="suburb-form">
+
+          <div class="suburb-form-section">
+            <div class="form-section-header">
+              Suburb Snapshot
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="suburbName" class="form-label">Suburb Name *</label>
+                <input type="text" id="suburbName" class="form-input" placeholder="e.g., Parramatta" required>
+              </div>
+              <div class="form-group">
+                <label for="cityTown" class="form-label">City / Town *</label>
+                <input type="text" id="cityTown" class="form-input" placeholder="e.g., Greater Sydney" required>
+              </div>
+              <div class="form-group">
+                <label for="state" class="form-label">State *</label>
+                <select id="state" class="form-input" required>
+                  <option value="">Select state</option>
+                  <option value="NSW">NSW</option>
+                  <option value="VIC">VIC</option>
+                  <option value="QLD">QLD</option>
+                  <option value="SA">SA</option>
+                  <option value="WA">WA</option>
+                  <option value="TAS">TAS</option>
+                  <option value="NT">NT</option>
+                  <option value="ACT">ACT</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="postcode" class="form-label">Postcode *</label>
+                <input type="text" id="postcode" class="form-input" placeholder="e.g., 2150" maxlength="4" required>
+                <span class="form-help-text">4-digit Australian postcode</span>
+              </div>
+              <div class="form-group">
+                <label for="priceBand" class="form-label">Price Band *</label>
+                <select id="priceBand" class="form-input" required>
+                  <option value="">Select price band</option>
+                  <option value="<$400k">&lt;$400k</option>
+                  <option value="$400-$500k">$400&ndash;$500k</option>
+                  <option value="$500-$600k">$500&ndash;$600k</option>
+                  <option value="$600-$700k">$600&ndash;$700k</option>
+                  <option value="$700-$800k">$700&ndash;$800k</option>
+                  <option value="$800k+">$800k+</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="dateAssessed" class="form-label">Date Assessed *</label>
+                <input type="date" id="dateAssessed" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label for="medianPrice" class="form-label">Median House Price *</label>
+                <input type="number" id="medianPrice" class="form-input" placeholder="e.g., 850000" min="100000" max="10000000" step="1000" required>
+              </div>
+              <div class="form-group">
+                <label for="weeklyRent" class="form-label">Weekly Rent *</label>
+                <input type="number" id="weeklyRent" class="form-input" placeholder="e.g., 650" min="50" max="5000" step="10" required>
+              </div>
+              <div class="form-group">
+                <label for="annualGrowth" class="form-label">Annual Capital Growth (%)</label>
+                <input type="number" id="annualGrowth" class="form-input" placeholder="e.g., 4.5" min="-20" max="40" step="0.1">
+              </div>
+              <div class="form-group">
+                <label for="vacancyRate" class="form-label">Vacancy Rate (%)</label>
+                <input type="number" id="vacancyRate" class="form-input" placeholder="e.g., 2.1" min="0" max="20" step="0.1">
+              </div>
+              <div class="form-group">
+                <label for="distanceToCBD" class="form-label">Distance to CBD (km)</label>
+                <input type="number" id="distanceToCBD" class="form-input" placeholder="e.g., 23" min="0" max="500" step="1">
+              </div>
+              <div class="form-group">
+                <label for="includeFlag" class="form-label">Include in shortlist?</label>
+                <select id="includeFlag" class="form-input">
+                  <option value="Yes" selected>Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="suburb-form-section">
+            <div class="form-section-header">
+              Thesis &amp; Scores
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="manualScore" class="form-label">Manual Overall Score (/10)</label>
+                <input type="number" id="manualScore" class="form-input" placeholder="e.g., 7.5" min="0" max="10" step="0.1">
+              </div>
+              <div class="form-group">
+                <label for="thesis" class="form-label">Investment Thesis (1-2 lines)</label>
+                <textarea id="thesis" class="form-input" rows="2" placeholder="Why this suburb makes sense..."></textarea>
+              </div>
+              <div class="form-group" style="grid-column: 1 / -1;">
+                <label for="suburbNotes" class="form-label">Additional Notes</label>
+                <textarea id="suburbNotes" class="form-input" rows="3" placeholder="Add extra context or reminders"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="suburb-form-section">
+            <div class="form-section-header">
+              Advanced Metrics (auto score)
+            </div>
+            <p style="color: var(--gray-600); font-size: var(--text-sm); margin-bottom: var(--space-4);">
+              Score each metric 0-2 to build an automatic score. Use the target/trend selectors to capture qualitative notes.
+            </p>
+            <div id="advancedMetrics"></div>
+          </div>
+
+          <div class="form-group full-width" style="margin-top: var(--space-4);">
+            <button type="submit" id="addSuburbBtn" class="btn btn-primary btn-block">
+              Add Suburb to Comparison
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- View Toggle & Controls -->
+      <div id="suburbControls" class="suburb-controls" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-6);">
+          <div>
+            <strong id="suburbCount" style="color: var(--gray-800);">0 suburbs</strong>
+            <span style="color: var(--gray-600);"> in comparison</span>
+          </div>
+          <div style="display: flex; gap: var(--space-2);">
+            <button id="viewToggleCards" class="btn btn-secondary btn-small view-toggle-btn active">
+              Cards
+            </button>
+            <button id="viewToggleTable" class="btn btn-secondary btn-small view-toggle-btn">
+              Table
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Suburb Display Container -->
+      <div id="suburbDisplay">
+        <!-- Empty state -->
+        <div id="emptyState" class="card" style="text-align: center; padding: var(--space-12);">
+          <p style="font-size: var(--text-lg); color: var(--gray-600); margin-bottom: var(--space-2);">
+            No suburbs added yet
+          </p>
+          <p style="color: var(--gray-500);">
+            Add your first suburb above to start comparing investment opportunities
+          </p>
+        </div>
+
+        <!-- Cards View -->
+        <div id="suburbCardsView" class="suburb-cards-grid" style="display: none;"></div>
+
+        <!-- Table View -->
+        <div id="suburbTableView" class="suburb-table-container" style="display: none;">
+          <table class="suburb-table">
+            <thead>
+              <tr>
+                <th data-sort="suburbName">Suburb</th>
+                <th data-sort="cityTown">City / State</th>
+                <th data-sort="priceBand">Price Band</th>
+                <th data-sort="include">Include</th>
+                <th data-sort="manualScore">Manual Score</th>
+                <th data-sort="autoScore">Auto Score (/10)</th>
+                <th data-sort="dateAssessed">Date Assessed</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="suburbTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================
+         STAGE 3: LOCATION INTELLIGENCE
+         ======================================== -->
+    <section id="stage3Section" class="stage-section" style="display: none;">
+
+      <div class="stage-header">
+        <span class="stage-number">Stage 3 of 6</span>
+        <h2 class="stage-title">Location Intelligence</h2>
+        <p class="stage-description">
+          Score amenity coverage, highlight the best pockets, and capture development notes for each suburb.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-bottom: var(--space-4); color: var(--gray-800);">
+          Suburb Location Analysis
+        </h3>
+
+        <form id="stage3Form">
+          <div class="location-form-grid">
+            <div class="form-group">
+              <label for="location-suburb">Suburb Name *</label>
+              <input type="text" id="location-suburb" placeholder="e.g., Parramatta" required>
+            </div>
+
+            <div class="form-group">
+              <label for="location-state">State *</label>
+              <select id="location-state" required>
+                <option value="">Select state</option>
+                <option value="NSW">NSW</option>
+                <option value="VIC">VIC</option>
+                <option value="QLD">QLD</option>
+                <option value="SA">SA</option>
+                <option value="WA">WA</option>
+                <option value="TAS">TAS</option>
+                <option value="ACT">ACT</option>
+                <option value="NT">NT</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="location-pocket">Best pockets / streets</label>
+              <textarea id="location-pocket" rows="2" placeholder="e.g., Riverbank quarter, walk-to-parks pocket"></textarea>
+              <span class="form-help-text">Capture micro areas to re-check once the score is calculated.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="location-notes">Development notes</label>
+              <textarea id="location-notes" rows="2" placeholder="Upcoming infrastructure, rezoning, risks, etc."></textarea>
+            </div>
+          </div>
+
+          <h4 style="margin-top: var(--space-6); margin-bottom: var(--space-3);">Nearby amenities (within 2 km)</h4>
+          <div class="location-amenities-grid">
+            <label style="display: flex; align-items: center; gap: var(--space-2);">
+              <input type="checkbox" id="amenity-train"> Train station
+            </label>
+            <label style="display: flex; align-items: center; gap: var(--space-2);">
+              <input type="checkbox" id="amenity-bus"> Bus stops
+            </label>
+            <label style="display: flex; align-items: center; gap: var(--space-2);">
+              <input type="checkbox" id="amenity-school"> Primary schools
+            </label>
+            <label style="display: flex; align-items: center; gap: var(--space-2);">
+              <input type="checkbox" id="amenity-highschool"> High schools
+            </label>
+            <label style="display: flex; align-items: center; gap: var(--space-2);">
+              <input type="checkbox" id="amenity-shopping"> Shopping centres
+            </label>
+            <label style="display: flex; align-items: center; gap: var(--space-2);">
+              <input type="checkbox" id="amenity-hospital"> Hospitals / medical
+            </label>
+            <label style="display: flex; align-items: center; gap: var(--space-2);">
+              <input type="checkbox" id="amenity-parks"> Parks / recreation
+            </label>
+            <label style="display: flex; align-items: center; gap: var(--space-2);">
+              <input type="checkbox" id="amenity-cbd"> Close to CBD
+            </label>
+          </div>
+
+          <div class="form-group" style="margin-top: var(--space-4);">
+            <button type="submit" class="btn btn-primary btn-block">Score location</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="stage3Results" class="location-results-card" style="display: none;">
+        <div class="location-score-badge" id="locationScoreDisplay">0/100</div>
+        <div class="location-guidance" id="locationRecommendation"></div>
+
+        <div class="location-insights" id="locationHighlights"></div>
+
+        <div class="location-category-grid" id="locationCategoryGrid"></div>
+
+        <div class="location-opportunities" id="locationOpportunities"></div>
+
+        <div class="location-context">
+          <div class="location-context-card">
+            <h4>Best pockets</h4>
+            <p id="locationPocketSummary"></p>
+          </div>
+          <div class="location-context-card">
+            <h4>Development notes</h4>
+            <p id="locationNotesSummary"></p>
+          </div>
+        </div>
+
+        <div class="location-next-steps">
+          <h4>Recommended next steps</h4>
+          <ul id="locationNextSteps"></ul>
+        </div>
+      </div>
+
+      <div id="stage3LastAnalysis" class="card location-last-analysis" style="display: none;">
+        <h4>Last analysis</h4>
+        <p id="locationLastSummary" style="margin-bottom: var(--space-2);"></p>
+        <p style="color: var(--gray-600); font-size: var(--text-sm);">
+          Your latest analysis is saved automatically so you can revisit this suburb or compare it to new pockets.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ========================================
+         STAGE 4: PROFESSIONAL NETWORK
+         ======================================== -->
+    <section id="stage4Section" class="stage-section" style="display: none;">
+      <div class="stage-header">
+        <span class="stage-number">Stage 4 of 6</span>
+        <h2 class="stage-title">Professional Network</h2>
+        <p class="stage-description">Manage your property investment team contacts</p>
+      </div>
+
+        <button id="addProfessionalBtn" class="btn btn-primary" style="margin-bottom: var(--space-6);">
+          + Add Professional
+        </button>
+
+        <div id="addProfessionalForm" class="card" style="display: none; margin-bottom: var(--space-6);">
+          <h3>Add Professional Contact</h3>
+          <form id="professionalForm">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-4); margin-top: var(--space-4);">
+              <div class="form-group">
+                <label for="pro-name">Name</label>
+                <input type="text" id="pro-name" placeholder="Full name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="pro-category">Category</label>
+                <select id="pro-category" required>
+                  <option value="">Select category</option>
+                  <option value="Mortgage Broker">Mortgage Broker</option>
+                  <option value="Conveyancer">Conveyancer</option>
+                  <option value="Property Manager">Property Manager</option>
+                  <option value="Building Inspector">Building Inspector</option>
+                  <option value="Pest Inspector">Pest Inspector</option>
+                  <option value="Real Estate Agent">Real Estate Agent</option>
+                  <option value="Accountant">Accountant</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="pro-phone">Phone</label>
+                <input type="tel" id="pro-phone" placeholder="0400 000 000">
+              </div>
+
+              <div class="form-group">
+                <label for="pro-email">Email</label>
+                <input type="email" id="pro-email" placeholder="contact@example.com">
+              </div>
+
+              <div class="form-group">
+                <label for="pro-rating">Rating</label>
+                <select id="pro-rating">
+                  <option value="0">Not rated</option>
+                  <option value="5">5 - Excellent</option>
+                  <option value="4">4 - Good</option>
+                  <option value="3">3 - Average</option>
+                  <option value="2">2 - Below Average</option>
+                  <option value="1">1 - Poor</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: var(--space-4);">
+              <label for="pro-notes">Notes</label>
+              <textarea id="pro-notes" rows="3" placeholder="Any notes about this professional..."></textarea>
+            </div>
+
+            <div style="display: flex; gap: var(--space-3); margin-top: var(--space-4);">
+              <button type="submit" class="btn btn-primary">Save Professional</button>
+              <button type="button" id="cancelProfessionalBtn" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+      <div id="professionalsGrid"></div>
+    </section>
+
+    <!-- ========================================
+         STAGE 5: ACQUISITION TRACKER
+         ======================================== -->
+    <section id="stage5Section" class="stage-section" style="display: none;">
+      <div class="stage-header">
+        <span class="stage-number">Stage 5 of 6</span>
+        <h2 class="stage-title">Acquisition Tracker</h2>
+        <p class="stage-description">Track your property purchase timeline and checklist</p>
+      </div>
+
+        <div class="card">
+          <h3>Key Dates</h3>
+          <form id="stage5DatesForm" style="margin-top: var(--space-4);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-4);">
+              <div class="form-group">
+                <label for="date-contract">Contract Date</label>
+                <input type="date" id="date-contract">
+              </div>
+
+              <div class="form-group">
+                <label for="date-settlement">Settlement Date</label>
+                <input type="date" id="date-settlement">
+              </div>
+
+              <div class="form-group">
+                <label for="date-finance">Finance Approval Due</label>
+                <input type="date" id="date-finance">
+              </div>
+
+              <div class="form-group">
+                <label for="date-inspection">Building Inspection</label>
+                <input type="date" id="date-inspection">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top: var(--space-4);">Save Dates</button>
+          </form>
+        </div>
+
+        <div class="card" style="margin-top: var(--space-6);">
+          <h3>Document Checklist</h3>
+          <div id="documentChecklist" style="margin-top: var(--space-4);"></div>
+        </div>
+
+        <div class="card" style="margin-top: var(--space-6);">
+          <h3>Payment Tracker</h3>
+          <div id="paymentTracker" style="margin-top: var(--space-4);"></div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         STAGE 6: PORTFOLIO DASHBOARD
+         ======================================== -->
+    <section id="stage6Section" class="stage-section" style="display: none;">
+      <div class="stage-header">
+        <span class="stage-number">Stage 6 of 6</span>
+        <h2 class="stage-title">Portfolio Dashboard</h2>
+        <p class="stage-description">View your property investment portfolio</p>
+      </div>
+
+        <button id="addPropertyBtn" class="btn btn-primary" style="margin-bottom: var(--space-6);">
+          + Add Property
+        </button>
+
+        <div id="addPropertyForm" class="card" style="display: none; margin-bottom: var(--space-6);">
+          <h3>Add Property to Portfolio</h3>
+          <form id="portfolioPropertyForm">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-4); margin-top: var(--space-4);">
+              <div class="form-group">
+                <label for="portfolio-address">Property Address</label>
+                <input type="text" id="portfolio-address" placeholder="Full address" required>
+              </div>
+
+              <div class="form-group">
+                <label for="portfolio-purchase-price">Purchase Price ($)</label>
+                <input type="number" id="portfolio-purchase-price" placeholder="800000" required>
+              </div>
+
+              <div class="form-group">
+                <label for="portfolio-current-value">Current Value ($)</label>
+                <input type="number" id="portfolio-current-value" placeholder="850000" required>
+              </div>
+
+              <div class="form-group">
+                <label for="portfolio-loan-amount">Loan Amount ($)</label>
+                <input type="number" id="portfolio-loan-amount" placeholder="640000" required>
+              </div>
+
+              <div class="form-group">
+                <label for="portfolio-interest-rate">Interest Rate (%)</label>
+                <input type="number" step="0.01" id="portfolio-interest-rate" placeholder="6.5" required>
+              </div>
+
+              <div class="form-group">
+                <label for="portfolio-rent">Weekly Rent ($)</label>
+                <input type="number" id="portfolio-rent" placeholder="550">
+              </div>
+
+              <div class="form-group">
+                <label for="portfolio-expenses">Monthly Expenses ($)</label>
+                <input type="number" id="portfolio-expenses" placeholder="500">
+              </div>
+            </div>
+
+            <div style="display: flex; gap: var(--space-3); margin-top: var(--space-4);">
+              <button type="submit" class="btn btn-primary">Save Property</button>
+              <button type="button" id="cancelPropertyBtn" class="btn btn-secondary">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+        <div id="portfolioGrid"></div>
+
+      <div id="portfolioEmpty" class="empty-state">
+        <p>No properties in your portfolio yet</p>
+        <p style="font-size: 0.875rem; color: var(--gray-500);">Add your first property to start tracking your investments</p>
+      </div>
+    </section>
+
+    <!-- Lead Capture Modal -->
+    <div id="leadModal" class="modal-overlay hidden" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
+        <button type="button" id="leadModalClose" class="modal-close" aria-label="Close">&times;</button>
+        <h3 id="leadModalTitle" class="modal-title">Get Your Investment Plan</h3>
+        <p class="modal-text">Enter your email and we'll send you a summary of your investment capacity and recommended next steps.</p>
+        <form id="leadForm" class="modal-form">
+          <div class="form-group">
+            <label for="leadName" class="form-label">First Name</label>
+            <input type="text" id="leadName" class="form-input" placeholder="e.g., Sarah" required>
+          </div>
+          <div class="form-group">
+            <label for="leadEmail" class="form-label">Email Address</label>
+            <input type="email" id="leadEmail" class="form-input" placeholder="e.g., sarah@example.com" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send My Investment Plan</button>
+        </form>
+        <p class="modal-disclaimer">We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
+        <div id="leadSuccess" class="modal-success hidden">
+          <div class="modal-success-icon">&#10003;</div>
+          <h4>You're on the list!</h4>
+          <p>Check your inbox for your investment capacity summary.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Print-Only Report (hidden on screen, visible when printing) -->
+    <div id="printReport" class="print-only">
+      <div class="print-header">
+        <h1>Property Investment Plan</h1>
+        <p>Generated by Propology</p>
+      </div>
+      <div class="print-section">
+        <h2>Your Financial Position</h2>
+        <div class="print-grid">
+          <div class="print-row"><span>Total Equity</span><strong id="printTotalEquity">$0</strong></div>
+          <div class="print-row"><span>Usable Equity (80% LVR)</span><strong id="printUsableEquity">$0</strong></div>
+          <div class="print-row"><span>Household Borrowing Power</span><strong id="printBorrowingCapacity">$0</strong></div>
+          <div class="print-row"><span>Individual Borrowing Capacity</span><strong id="printIndividualBorrowing">$0</strong></div>
+          <div class="print-row"><span>Deposit Available</span><strong id="printDeposit">$0</strong></div>
+          <div class="print-row"><span>Recommended Purchase Range</span><strong id="printPurchaseRange">$0 - $0</strong></div>
+          <div class="print-row"><span>Loan-to-Value Ratio</span><strong id="printLvr">0%</strong></div>
+          <div class="print-row"><span>Estimated LMI</span><strong id="printLmi">$0</strong></div>
+          <div class="print-row"><span>Investment Strategy</span><strong id="printStrategy">Balanced</strong></div>
+          <div class="print-row"><span>HECS / HELP Impact</span><strong id="printHecs">Not applied</strong></div>
+        </div>
+      </div>
+      <div class="print-section">
+        <h2>Next Steps</h2>
+        <ol>
+          <li>Speak to a licensed mortgage broker to confirm your borrowing capacity.</li>
+          <li>Review your investment strategy with a qualified financial adviser.</li>
+          <li>Research suburbs using Stage 2 of this app.</li>
+          <li>Engage a buyer's agent or conduct due diligence before making an offer.</li>
+        </ol>
+      </div>
+      <div class="print-footer">
+        <p>This report was generated for educational purposes only and does not constitute financial product advice. The developer does not hold an AFSL or credit license. Always consult licensed professionals before making investment decisions.</p>
+        <p>Propology &mdash; Your data stays on your device.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer style="
+    background: white;
+    border-top: 1px solid var(--gray-200);
+    padding: 2rem 1.5rem;
+    margin-top: 4rem;
+    text-align: center;
+  ">
+    <div style="
+      max-width: 1200px;
+      margin: 0 auto;
+      font-size: 0.875rem;
+      color: var(--gray-600);
+    ">
+      <p style="margin-bottom: 0.5rem;">
+        &copy; 2025 Propology. All rights reserved.
+      </p>
+      <p>
+        <a href="./privacy.html" style="color: var(--primary-blue); text-decoration: none;">Privacy Policy</a>
+        <span style="margin: 0 0.5rem; color: var(--gray-400);">|</span>
+        <a href="./terms.html" style="color: var(--primary-blue); text-decoration: none;">Terms of Service</a>
+        <span style="margin: 0 0.5rem; color: var(--gray-400);">|</span>
+        <span>Your data stays on your device</span>
+      </p>
+      <p style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--gray-500);">
+        This app provides general information and educational estimates only. It is not financial product advice.
+        The developers do not hold an AFSL or credit license. Always consult a licensed mortgage broker,
+        financial adviser, and solicitor before making property investment decisions.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       JAVASCRIPT
+       ======================================== -->
+  
+  <script src="./js/utils.js" defer></script>
+  <script src="./js/stages/stage1.js" defer></script>
+  <script src="./js/stages/stage2.js" defer></script>
+  <script src="./js/stages/stage3.js" defer></script>
+  <script src="./js/stages/stage4.js" defer></script>
+  <script src="./js/stages/stage5.js" defer></script>
+  <script src="./js/stages/stage6.js" defer></script>
+  <script src="./js/app.js" defer></script>
+
+
+</body>
+</html>
+
+
+
+
+
+

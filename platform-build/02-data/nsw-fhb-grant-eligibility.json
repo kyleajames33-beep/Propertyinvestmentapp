@@ -1,0 +1,334 @@
+{
+  "_schema_version": "1.0",
+  "_notes": "Comprehensive eligibility data for all first home buyer schemes available to NSW purchasers as of 2024-25. Includes state (NSW) and federal schemes. Scheme statuses, thresholds, and eligibility criteria are current as of January 2025. Some thresholds and caps are subject to annual indexation. Users should verify current figures with the administering authority before relying on this data for purchasing decisions. The First Home Buyer Choice (annual property tax) scheme is closed to new entrants but included for reference by grandfathered participants.",
+  "metadata": {
+    "jurisdiction": "New South Wales",
+    "effective_date": "2025-01-01",
+    "last_reviewed": "2025-01-15",
+    "disclaimer": "All thresholds and criteria subject to change. Verify with administering authority before acting."
+  },
+  "schemes": [
+    {
+      "scheme_id": "FHBAS",
+      "scheme_name": "First Home Buyer Assistance Scheme",
+      "administered_by": "Revenue NSW (State)",
+      "scheme_status": "active",
+      "benefit_type": "stamp_duty_exemption",
+      "description": "Exemption or concession on transfer duty (stamp duty) for eligible first home buyers purchasing property valued up to $1,000,000.",
+      "eligibility": [
+        "Never owned or co-owned residential property in Australia (previous ownership anywhere in Australia disqualifies)",
+        "At least one applicant must be an Australian citizen or permanent resident",
+        "Must be a natural person (not a company or trust)",
+        "Must be 18 years of age or older",
+        "Must occupy the property as principal place of residence within 12 months of settlement",
+        "Must reside in the property for at least 6 continuous months as PPR",
+        "All purchasers on the contract must satisfy eligibility criteria"
+      ],
+      "property_thresholds": {
+        "existing_home_full_exemption": 800000,
+        "existing_home_concession_max": 1000000,
+        "vacant_land_full_exemption": 450000,
+        "vacant_land_concession_max": 600000,
+        "above_threshold_note": "Properties above the concession maximum ($1,000,000 for existing homes, $600,000 for vacant land) attract full standard transfer duty with no concession."
+      },
+      "concession_structure": {
+        "full_exemption": "$0 duty for properties at or below the full exemption threshold",
+        "concessional_rate": "Sliding scale concession applies between the full exemption threshold and the concession maximum",
+        "phase_out": "Concession reduces linearly; full standard duty applies above the concession maximum"
+      },
+      "persona_applicability": [
+        "fhb-oo"
+      ],
+      "mutual_exclusivity": {
+        "cannot_combine_with": [],
+        "notes": "FHBAS can be combined with FHOG (if purchasing a new home) and federal schemes (HGS, HTB, FHSSS). Each scheme has independent eligibility."
+      }
+    },
+    {
+      "scheme_id": "FHOG",
+      "scheme_name": "First Home Owner Grant (New Homes)",
+      "administered_by": "Revenue NSW (State)",
+      "scheme_status": "active",
+      "benefit_type": "cash_grant",
+      "grant_amount": 10000,
+      "description": "$10,000 grant for eligible first home buyers purchasing or building a new home in NSW. Not available for existing homes.",
+      "eligibility": [
+        "Never owned residential property in Australia",
+        "At least one applicant must be an Australian citizen or permanent resident",
+        "Must be a natural person aged 18 or older",
+        "Must occupy the property as principal place of residence within 12 months of settlement/completion",
+        "Must reside in the property for at least 6 continuous months as PPR",
+        "Property must be a new home or substantially renovated home (not previously occupied or sold as a residence)"
+      ],
+      "property_thresholds": {
+        "new_purchase_max": 750000,
+        "build_max": 750000,
+        "note": "Contract price for purchase, or total of land plus building contract for self-builds, must not exceed $750,000."
+      },
+      "persona_applicability": [
+        "fhb-oo"
+      ],
+      "mutual_exclusivity": {
+        "cannot_combine_with": [],
+        "notes": "FHOG can be combined with FHBAS and all federal schemes provided each scheme's individual eligibility criteria are met."
+      }
+    },
+    {
+      "scheme_id": "FHB-CHOICE",
+      "scheme_name": "First Home Buyer Choice (Annual Property Tax)",
+      "administered_by": "Revenue NSW (State)",
+      "scheme_status": "closed",
+      "closure_date": "2023-07-01",
+      "benefit_type": "annual_property_tax_alternative",
+      "description": "Allowed eligible first home buyers to opt out of upfront stamp duty and pay an annual property tax instead. Closed to new entrants from 1 July 2023.",
+      "eligibility": {
+        "status": "Only grandfathered participants who opted in before 1 July 2023 remain eligible",
+        "notes": "No new entrants accepted. Existing participants continue under their elected arrangement. Property tax rates were $400 + 0.3% of land value for owner-occupiers, and $1,500 + 1.1% for investors."
+      },
+      "property_thresholds": {
+        "previous_threshold": 1500000,
+        "note": "Historical threshold for reference only. Scheme closed to new entrants."
+      },
+      "persona_applicability": [
+        "fhb-oo"
+      ],
+      "mutual_exclusivity": {
+        "cannot_combine_with": [],
+        "notes": "For grandfathered participants only. Cannot opt out of property tax once elected."
+      }
+    },
+    {
+      "scheme_id": "SEHBH",
+      "scheme_name": "Shared Equity Home Buyer Helper",
+      "administered_by": "NSW Land and Housing Corporation (State)",
+      "scheme_status": "active",
+      "benefit_type": "equity_contribution",
+      "description": "NSW Government contributes up to 40% (new home) or 30% (existing home) of the purchase price in exchange for equivalent equity share. Reduces the mortgage required and eliminates LMI. Available to single parents, older singles (50+), and key workers.",
+      "eligibility": [
+        "Single parent with at least one dependent child; or",
+        "Single person aged 50 years or older; or",
+        "Key worker (nurse, midwife, paramedic, teacher, police officer, early childhood educator, carer)",
+        "Australian citizen or permanent resident",
+        "Minimum 2% deposit required",
+        "Must owner-occupy as principal place of residence",
+        "Must not own other property at time of purchase (some exceptions for past ownership)",
+        "Maximum gross annual income applies"
+      ],
+      "property_thresholds": {
+        "sydney_regional_centres_max": 950000,
+        "other_nsw_max": 600000,
+        "equity_share_new_home_max_pct": 40,
+        "equity_share_existing_home_max_pct": 30,
+        "note": "Sydney and regional centres (Newcastle, Central Coast, Illawarra, Lake Macquarie) cap: $950,000. Other NSW: $600,000."
+      },
+      "income_caps": {
+        "single": 93200,
+        "couple": 124200,
+        "note": "Gross annual income caps. For couples, combined gross income. Thresholds subject to annual review."
+      },
+      "persona_applicability": [
+        "fhb-oo"
+      ],
+      "mutual_exclusivity": {
+        "cannot_combine_with": [],
+        "notes": "Can combine with FHBAS (stamp duty relief) but not with FHOG as the shared equity property must be owner-occupied. FHSSS and HGS may be available subject to individual eligibility."
+      }
+    },
+    {
+      "scheme_id": "FHSSS",
+      "scheme_name": "First Home Super Saver Scheme",
+      "administered_by": "Australian Taxation Office (Federal)",
+      "scheme_status": "active",
+      "benefit_type": "tax_concession_savings",
+      "description": "Allows voluntary superannuation contributions to be withdrawn for a first home deposit. Contributions are taxed at 15% going in (vs marginal rate) and withdrawals are taxed at marginal rate less 30% offset.",
+      "eligibility": [
+        "Never owned property in Australia (strict eligibility, some hardship exceptions apply)",
+        "Must be 18 years or older to request release",
+        "Must intend to occupy the property as soon as practicable and for at least 6 of the first 12 months",
+        "Can only receive FHSSS release once"
+      ],
+      "contribution_limits": {
+        "max_voluntary_contributions_per_fy": 15000,
+        "max_total_contributions": 50000,
+        "total_withdrawal_limit": 50000,
+        "eligible_contribution_types": [
+          "voluntary_concessional",
+          "voluntary_non_concessional"
+        ],
+        "note": "Only voluntary contributions made from 1 July 2017 onwards are eligible. Mandatory employer SG contributions are not eligible."
+      },
+      "withdrawal_process": {
+        "step_1": "Request a determination from the ATO before signing a contract (online via myGov)",
+        "step_2": "ATO calculates maximum releasable amount within 15-25 business days",
+        "step_3": "Request release of funds (must do within 28 days of determination or re-request)",
+        "step_4": "Super fund releases funds to ATO, ATO withholds tax and releases balance to you",
+        "step_5": "Must sign contract to purchase or construct within 12 months of release (or re-contribute)",
+        "processing_time": "15-25 business days for determination; 15-20 business days for release after request"
+      },
+      "persona_applicability": [
+        "fhb-oo"
+      ],
+      "mutual_exclusivity": {
+        "cannot_combine_with": [],
+        "notes": "FHSSS can be combined with all other state and federal first home buyer schemes. It is a savings vehicle, not a competing grant."
+      }
+    },
+    {
+      "scheme_id": "HTB",
+      "scheme_name": "Help to Buy",
+      "administered_by": "Housing Australia (Federal)",
+      "scheme_status": "active",
+      "benefit_type": "equity_contribution",
+      "description": "Federal government shared equity scheme. Government contributes up to 40% (new home) or 30% (existing home) equity. Participants need minimum 2% deposit. Government equity is repaid over time or at sale.",
+      "eligibility": [
+        "Australian citizens only (permanent residents not eligible)",
+        "Must be at least 18 years of age",
+        "Gross annual income must not exceed applicable cap",
+        "Must owner-occupy the property as principal place of residence",
+        "Must not currently own land or property in Australia",
+        "Must have minimum 2% deposit saved",
+        "Must demonstrate capacity to finance the remaining property share and ongoing costs",
+        "Can demonstrate savings history or rental payment history (12 months of on-time rent payments)",
+        "Cannot have previously received a release under the FHSSS"
+      ],
+      "income_caps": {
+        "single": 100000,
+        "couple": 160000,
+        "note": "Gross annual income. For couples and other joint applicants, combined gross income. Indexed annually."
+      },
+      "property_thresholds": {
+        "sydney_nsw_regional_cities_max": 1300000,
+        "rest_of_nsw_max": 800000,
+        "equity_share_new_home_max_pct": 40,
+        "equity_share_existing_home_max_pct": 30,
+        "note": "NSW price caps: $1.3M for Sydney and designated regional centres; $800,000 for rest of NSW. Caps apply to the total property value, not the participant's share."
+      },
+      "persona_applicability": [
+        "fhb-oo"
+      ],
+      "mutual_exclusivity": {
+        "cannot_combine_with": [
+          "FHSSS"
+        ],
+        "notes": "Cannot combine with FHSSS. Can combine with FHBAS (stamp duty relief) and FHOG (if new home). Cannot combine with state-level Shared Equity Home Buyer Helper for the same property. Must choose between federal Help to Buy or state Shared Equity."
+      }
+    },
+    {
+      "scheme_id": "HGS",
+      "scheme_name": "Home Guarantee Scheme",
+      "administered_by": "National Housing Authority / participating lenders (Federal)",
+      "scheme_status": "active",
+      "effective_changes": {
+        "note": "From 1 October 2025, income caps are removed and price caps increased. Scheme expanded to all Australian citizens and permanent residents who have not owned property in the last 5 years (previously 10 years)."
+      },
+      "sub_schemes": [
+        {
+          "name": "First Home Guarantee",
+          "description": "Supports eligible first home buyers to purchase with as little as 5% deposit without LMI.",
+          "places_annual": 35000
+        },
+        {
+          "name": "Regional First Home Buyer Guarantee",
+          "description": "Supports eligible first home buyers in regional areas to purchase with as little as 5% deposit without LMI.",
+          "places_annual": 10000
+        },
+        {
+          "name": "Family Home Guarantee",
+          "description": "Supports eligible single parents with at least one dependent child to purchase with as little as 2% deposit without LMI.",
+          "places_annual": 5000
+        }
+      ],
+      "eligibility": [
+        "Australian citizen or permanent resident (from 1 Oct 2025)",
+        "Must be at least 18 years of age",
+        "Must not have owned property in Australia in the previous 5 years (from 1 Oct 2025; was 10 years)",
+        "No income caps from 1 October 2025",
+        "Must intend to occupy as principal place of residence (investment properties not eligible)",
+        "Must have saved the required minimum deposit (5% for FHG/RFHBG, 2% for FHG-Single Parent)"
+      ],
+      "property_thresholds": {
+        "sydney_major_regional_max": 1500000,
+        "rest_of_nsw_max": 800000,
+        "note": "NSW price caps from 1 Oct 2025: $1.5M for Sydney and major regional centres; $800,000 for rest of NSW. Previous caps were $900,000/$750,000."
+      },
+      "persona_applicability": [
+        "fhb-oo"
+      ],
+      "mutual_exclusivity": {
+        "cannot_combine_with": [],
+        "notes": "Can combine with FHBAS, FHOG, FHSSS, and Help to Buy (subject to lender and individual scheme requirements). Cannot use more than one Home Guarantee sub-scheme simultaneously."
+      }
+    }
+  ],
+  "scheme_combination_matrix": {
+    "description": "Which schemes can be used together for a single property purchase",
+    "can_combine": [
+      [
+        "FHBAS",
+        "FHOG"
+      ],
+      [
+        "FHBAS",
+        "FHSSS"
+      ],
+      [
+        "FHBAS",
+        "HGS"
+      ],
+      [
+        "FHOG",
+        "FHSSS"
+      ],
+      [
+        "FHOG",
+        "HGS"
+      ],
+      [
+        "FHSSS",
+        "HGS"
+      ],
+      [
+        "FHBAS",
+        "FHOG",
+        "FHSSS",
+        "HGS"
+      ],
+      [
+        "SEHBH",
+        "FHBAS"
+      ],
+      [
+        "HTB",
+        "FHBAS"
+      ],
+      [
+        "HTB",
+        "FHOG"
+      ]
+    ],
+    "cannot_combine": [
+      {
+        "schemes": [
+          "HTB",
+          "SEHBH"
+        ],
+        "reason": "Cannot use both federal and state shared equity schemes for the same property. Must choose one."
+      },
+      {
+        "schemes": [
+          "HTB",
+          "FHSSS"
+        ],
+        "reason": "Help to Buy legislation excludes participants who have received a FHSSS release."
+      },
+      {
+        "schemes": [
+          "FHB-CHOICE",
+          "FHBAS"
+        ],
+        "reason": "First Home Buyer Choice was an alternative to stamp duty exemption. Opting into property tax excluded eligibility for FHBAS."
+      }
+    ],
+    "general_principle": "State and federal schemes are generally independent. You can combine multiple schemes provided you satisfy each scheme's individual eligibility criteria and the combination is not explicitly prohibited above."
+  }
+}

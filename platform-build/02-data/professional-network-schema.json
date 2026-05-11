@@ -1,0 +1,378 @@
+{
+  "_schema_version": "1.0",
+  "_notes": "Schema template for professional referral partner data in the Australian property guidance platform. This file defines the data structure for mortgage brokers, conveyancers, buyer's agents, building inspectors, property managers, and tax accountants/specialists. All partner entries are fictional examples clearly marked as such. Partners must hold appropriate Australian professional licences and professional indemnity insurance. All referral relationships must comply with ASIC regulatory guidance on referral arrangements (Regulatory Guide 36).",
+  "metadata": {
+    "version": "1.0",
+    "created_date": "2025-01-15",
+    "jurisdiction": "New South Wales, Australia",
+    "compliance_note": "All partners must hold valid professional licences and PI insurance. Referral fees must be disclosed per ASIC RG 36."
+  },
+  "schema_definition": {
+    "partner_id": {
+      "type": "string",
+      "format": "PARTNER-XXXX (zero-padded 4-digit number)",
+      "required": true,
+      "description": "Unique identifier for each partner",
+      "example": "PARTNER-0001"
+    },
+    "business_name": {
+      "type": "string",
+      "required": true,
+      "description": "Registered trading name of the business",
+      "example": "Sydney Home Loans Pty Ltd"
+    },
+    "contact_name": {
+      "type": "string",
+      "required": true,
+      "description": "Primary contact person for referrals",
+      "example": "Jane Smith"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "required": true,
+      "description": "Business email address"
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "description": "Business phone number"
+    },
+    "website": {
+      "type": "string",
+      "format": "url",
+      "required": false,
+      "description": "Business website URL"
+    },
+    "service_areas": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "lgas_covered": {
+          "type": "array",
+          "items": "string (LGA name or code)",
+          "description": "List of LGAs the partner services"
+        },
+        "can_do_remote": {
+          "type": "boolean",
+          "description": "Whether partner can service clients remotely (video/phone)"
+        },
+        "statewide": {
+          "type": "boolean",
+          "description": "Whether partner services entire state"
+        }
+      }
+    },
+    "credentials": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "license_numbers": {
+          "type": "object",
+          "description": "Professional licence numbers keyed by authority",
+          "properties": {
+            "asic_credit_licence": "string (for mortgage brokers)",
+            "asic_afsl": "string (for financial advisers)",
+            "nsw_conveyancer_licence": "string (for conveyancers)",
+            "nsw_real_estate_licence": "string (for buyer's agents and property managers)",
+            "cpa_ca_membership": "string (for accountants)",
+            "building_inspector_licence": "string (for building inspectors)",
+            "other": "string"
+          }
+        },
+        "years_experience": {
+          "type": "integer",
+          "description": "Years of professional experience"
+        },
+        "professional_indemnity_insurance": {
+          "type": "boolean",
+          "description": "Whether PI insurance is held and current"
+        },
+        "pi_insurance_expiry": {
+          "type": "string",
+          "format": "date",
+          "description": "Expiry date of PI insurance policy"
+        }
+      }
+    },
+    "specialisations": {
+      "type": "array",
+      "items": "string (tag from controlled vocabulary)",
+      "required": true,
+      "controlled_vocabulary": [
+        "fhb-specialist",
+        "investor-lending",
+        "complex-portfolios",
+        "smsf-lending",
+        "trust-structures",
+        "non-bank-lending",
+        "commercial-property",
+        "development-finance",
+        "construction-loans",
+        "refinancing",
+        "equity-release",
+        "self-employed-lending",
+        "low-deposit-specialist",
+        "cross-collateralisation",
+        "interest-only-strategy",
+        "offset-account-optimisation",
+        "first-home-buyer",
+        "investor-client",
+        "portfolio-clients",
+        "off-market-property",
+        "auction-bidding",
+        "negotiation",
+        "sydney-metro",
+        "regional-nsw",
+        "residential-building",
+        "pest-inspection",
+        "pool-compliance",
+        "renovation-assessment",
+        "development-feasibility",
+        "full-management",
+        "tenant-finding",
+        "portfolio-management",
+        "rental-appraisal",
+        "negative-gearing",
+        "depreciation",
+        "capital-gains-tax",
+        "trust-accounting",
+        "smsf-administration",
+        "tax-planning",
+        "bookkeeping"
+      ]
+    },
+    "referral_terms": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "fee_structure": {
+          "type": "string",
+          "description": "Description of referral fee arrangement",
+          "example": "Fixed fee per settled loan: $XXX"
+        },
+        "referral_fee_disclosed": {
+          "type": "boolean",
+          "description": "Whether referral fee is disclosed to clients"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "paused",
+            "vetting"
+          ],
+          "description": "Current status of referral arrangement"
+        },
+        "onboarded_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date partner was onboarded to the platform"
+        },
+        "review_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Next scheduled review date"
+        },
+        "compliance_verified": {
+          "type": "boolean",
+          "description": "Whether all licences and insurance have been verified"
+        }
+      }
+    },
+    "capacity": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "max_leads_per_month": {
+          "type": "integer",
+          "description": "Maximum leads partner can accept per month"
+        },
+        "current_month_leads": {
+          "type": "integer",
+          "description": "Current month lead count"
+        },
+        "available_capacity": {
+          "type": "integer",
+          "description": "Remaining capacity for current month"
+        },
+        "typical_response_hours": {
+          "type": "integer",
+          "description": "Typical hours to first response"
+        }
+      }
+    },
+    "performance": {
+      "type": "object",
+      "required": false,
+      "properties": {
+        "average_response_hours": {
+          "type": "number",
+          "description": "Average hours to first contact (rolling 90-day)"
+        },
+        "conversion_rate": {
+          "type": "number",
+          "description": "Lead to engagement conversion rate (0-1)"
+        },
+        "rating": {
+          "type": "number",
+          "description": "Average user rating (1-5)"
+        },
+        "total_referrals_received": {
+          "type": "integer",
+          "description": "Total referrals received lifetime"
+        },
+        "total_referrals_converted": {
+          "type": "integer",
+          "description": "Total referrals that converted to paid engagement"
+        },
+        "feedback_summary": {
+          "type": "string",
+          "description": "Summary of feedback themes"
+        }
+      }
+    },
+    "professional_type": {
+      "type": "string",
+      "required": true,
+      "enum": [
+        "mortgage-broker",
+        "conveyancer",
+        "buyers-agent",
+        "building-inspector",
+        "property-manager",
+        "accountant"
+      ]
+    },
+    "notes": {
+      "type": "string",
+      "required": false,
+      "description": "Internal notes about the partner"
+    }
+  },
+  "example_partners": [
+    {
+      "partner_id": "PARTNER-0001",
+      "business_name": "Harbour City Mortgage Solutions Pty Ltd",
+      "contact_name": "Sarah Chen",
+      "email": "sarah.chen@harbourcityms.com.au",
+      "phone": "02 9000 1100",
+      "website": "https://www.harbourcityms.com.au",
+      "service_areas": {
+        "lgas_covered": [
+          "City of Sydney",
+          "Inner West Council",
+          "Randwick City Council",
+          "Waverley Council",
+          "Woollahra Municipal Council",
+          "Canada Bay",
+          "Burwood Council"
+        ],
+        "can_do_remote": true,
+        "statewide": false
+      },
+      "credentials": {
+        "license_numbers": {
+          "asic_credit_licence": "ACL 123456",
+          "asic_afsl": "AFSL 654321"
+        },
+        "years_experience": 12,
+        "professional_indemnity_insurance": true,
+        "pi_insurance_expiry": "2025-11-30"
+      },
+      "specialisations": [
+        "fhb-specialist",
+        "investor-lending",
+        "complex-portfolios",
+        "offset-account-optimisation",
+        "self-employed-lending",
+        "sydney-metro"
+      ],
+      "referral_terms": {
+        "fee_structure": "Fixed referral fee per settled loan, disclosed to client at introduction",
+        "referral_fee_disclosed": true,
+        "status": "active",
+        "onboarded_date": "2024-09-15",
+        "review_date": "2025-09-15",
+        "compliance_verified": true
+      },
+      "capacity": {
+        "max_leads_per_month": 25,
+        "current_month_leads": 11,
+        "available_capacity": 14,
+        "typical_response_hours": 4
+      },
+      "performance": {
+        "average_response_hours": 3.5,
+        "conversion_rate": 0.68,
+        "rating": 4.8,
+        "total_referrals_received": 142,
+        "total_referrals_converted": 97,
+        "feedback_summary": "Consistently praised for responsiveness and ability to explain complex lending scenarios clearly. Strong with first home buyers."
+      },
+      "professional_type": "mortgage-broker",
+      "notes": "EXAMPLE ENTRY - FICTITIOUS BUSINESS. Used for schema demonstration only. Not a real business."
+    },
+    {
+      "partner_id": "PARTNER-0002",
+      "business_name": "North Shore Property Conveyancing",
+      "contact_name": "Michael O'Brien",
+      "email": "michael@northshoreconveyancing.com.au",
+      "phone": "02 9000 2200",
+      "website": "https://www.northshoreconveyancing.com.au",
+      "service_areas": {
+        "lgas_covered": [
+          "Ku-ring-gai Council",
+          "Willoughby City Council",
+          "Lane Cove Municipal Council",
+          "North Sydney Council",
+          "Mosman Municipal Council",
+          "Hornsby Shire Council",
+          "Northern Beaches Council",
+          "Ryde City Council"
+        ],
+        "can_do_remote": true,
+        "statewide": true
+      },
+      "credentials": {
+        "license_numbers": {
+          "nsw_conveyancer_licence": "CL 987654"
+        },
+        "years_experience": 18,
+        "professional_indemnity_insurance": true,
+        "pi_insurance_expiry": "2026-03-31"
+      },
+      "specialisations": [
+        "first-home-buyer",
+        "investor-client",
+        "portfolio-clients",
+        "trust-structures",
+        "sydney-metro"
+      ],
+      "referral_terms": {
+        "fee_structure": "Fixed fee per matter, disclosed to client. Referral fee paid on matter completion.",
+        "referral_fee_disclosed": true,
+        "status": "active",
+        "onboarded_date": "2024-10-01",
+        "review_date": "2025-10-01",
+        "compliance_verified": true
+      },
+      "capacity": {
+        "max_leads_per_month": 20,
+        "current_month_leads": 8,
+        "available_capacity": 12,
+        "typical_response_hours": 6
+      },
+      "performance": {
+        "average_response_hours": 5.2,
+        "conversion_rate": 0.72,
+        "rating": 4.9,
+        "total_referrals_received": 98,
+        "total_referrals_converted": 71,
+        "feedback_summary": "Highly regarded for thorough contract reviews and clear communication. Experienced with complex trust and off-the-plan settlements."
+      },
+      "professional_type": "conveyancer",
+      "notes": "EXAMPLE ENTRY - FICTITIOUS BUSINESS. Used for schema demonstration only. Not a real business."
+    }
+  ]
+}

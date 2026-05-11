@@ -1,0 +1,67 @@
+/* Print styles for calculator results and journey content */
+@media print {
+  /* Hide interactive/non-essential elements */
+  header,
+  footer,
+  nav,
+  .fixed,
+  [data-state="open"],
+  button:not([type="submit"]),
+  .no-print,
+  nav[aria-label="Mobile navigation"] {
+    display: none !important;
+  }
+
+  /* Reset backgrounds and colors for ink savings */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Ensure content is visible */
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Calculator-specific: show result sections clearly */
+  .print-break-inside {
+    break-inside: avoid;
+  }
+
+  .print-break-before {
+    break-before: page;
+  }
+
+  /* Charts may not render well — add a note */
+  canvas,
+  svg[class*="recharts"] {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Links: show URL after link text */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555;
+  }
+
+  /* Ensure tables don't break awkwardly */
+  table {
+    break-inside: avoid;
+  }
+
+  /* Page margins */
+  @page {
+    margin: 1.5cm;
+  }
+}
+
+/* Screen-only print button styling */
+@media screen {
+  .print-only {
+    display: none;
+  }
+}

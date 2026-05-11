@@ -1,0 +1,181 @@
+{
+  "_schema_version": "1.0",
+  "_notes": "NSW stamp duty (transfer duty) brackets for 2024-25 financial year, sourced from Revenue NSW. Includes standard progressive duty scale, First Home Buyer Assistance Scheme concessions, foreign purchaser surcharge, and premium property threshold. All rates current as of 1 July 2024. Foreign purchaser surcharge increased from 8% to 9% effective 1 January 2025. Premium duty threshold of $3,721,000 applies from 1 July 2025 (2025-26 FY). FHB scheme: full exemption up to $800,000; concessional rate $800,001-$1,000,000. Rates are per $100 or part thereof unless otherwise stated.",
+  "metadata": {
+    "jurisdiction": "New South Wales",
+    "effective_from": "2024-07-01",
+    "effective_to": "2025-06-30",
+    "source": "Revenue NSW",
+    "currency": "AUD"
+  },
+  "standard_duty_brackets": [
+    {
+      "bracket_id": "SD-01",
+      "min_price": 0,
+      "max_price": 17000,
+      "base_amount": 0,
+      "rate_per_dollar_over": 0,
+      "calculation_note": "Nominal duty of $0 applies. Properties purchased for $17,000 or less pay no duty.",
+      "formula_description": "$0 (no duty payable)"
+    },
+    {
+      "bracket_id": "SD-02",
+      "min_price": 17001,
+      "max_price": 36000,
+      "base_amount": 0,
+      "rate_per_dollar_over": 0.0125,
+      "calculation_note": "$1.25 per $100 or part thereof above $17,000.",
+      "formula_description": "(property_price - 17000) × 0.0125"
+    },
+    {
+      "bracket_id": "SD-03",
+      "min_price": 36001,
+      "max_price": 93000,
+      "base_amount": 540,
+      "rate_per_dollar_over": 0.015,
+      "calculation_note": "$1.50 per $100 or part thereof above $36,000, plus $540 base.",
+      "formula_description": "540 + ((property_price - 36000) × 0.0150)"
+    },
+    {
+      "bracket_id": "SD-04",
+      "min_price": 93001,
+      "max_price": 351000,
+      "base_amount": 1390,
+      "rate_per_dollar_over": 0.035,
+      "calculation_note": "$3.50 per $100 or part thereof above $93,000, plus $1,390 base.",
+      "formula_description": "1390 + ((property_price - 93000) × 0.0350)"
+    },
+    {
+      "bracket_id": "SD-05",
+      "min_price": 351001,
+      "max_price": 1168000,
+      "base_amount": 10440,
+      "rate_per_dollar_over": 0.045,
+      "calculation_note": "$4.50 per $100 or part thereof above $351,000, plus $10,440 base.",
+      "formula_description": "10440 + ((property_price - 351000) × 0.0450)"
+    },
+    {
+      "bracket_id": "SD-06",
+      "min_price": 1168001,
+      "max_price": 3505000,
+      "base_amount": 47400,
+      "rate_per_dollar_over": 0.055,
+      "calculation_note": "$5.50 per $100 or part thereof above $1,168,000, plus $47,400 base.",
+      "formula_description": "47400 + ((property_price - 1168000) × 0.0550)"
+    },
+    {
+      "bracket_id": "SD-07",
+      "min_price": 3505001,
+      "max_price": null,
+      "base_amount": null,
+      "rate_per_dollar_over": null,
+      "calculation_note": "Premium duty applies. 7% of the full property value.",
+      "formula_description": "property_price × 0.07"
+    }
+  ],
+  "premium_property_duty": {
+    "threshold_2024_25": 3505000,
+    "threshold_2025_26": 3721000,
+    "note": "Premium property duty applies to properties above the threshold. Rate is 7% of the full property value (not marginal). Threshold indexed annually. From 2025-26, the threshold increases to $3,721,000."
+  },
+  "foreign_purchaser_surcharge": {
+    "rate": 0.09,
+    "effective_from": "2025-01-01",
+    "previous_rate": 0.08,
+    "previous_rate_until": "2024-12-31",
+    "applies_to": "Foreign persons (including foreign natural persons, corporations, and trusts) purchasing residential land in NSW.",
+    "note": "Additional 9% duty on the dutiable value of residential property. Applies in addition to standard transfer duty. Exemptions available for principal place of residence under certain visa categories (e.g., subclass 444 NZ citizens). Surcharge purchaser duty on landholder acquisitions also 9%.",
+    "reference": "State Revenue Legislation Further Amendment Act 2024"
+  },
+  "first_home_buyer_assistance_scheme": {
+    "scheme_name": "First Home Buyer Assistance Scheme (FHBAS)",
+    "status": "active",
+    "effective_from": "2023-07-01",
+    "full_exemption": {
+      "threshold": 800000,
+      "max_price": 800000,
+      "description": "Full stamp duty exemption for properties purchased for $800,000 or less.",
+      "duty_payable": 0
+    },
+    "concessional_rate": {
+      "min_price": 800001,
+      "max_price": 1000000,
+      "description": "Concessional stamp duty rate applies on a sliding scale from $800,001 to $1,000,000.",
+      "formula_note": "Duty is calculated as 1.25 × standard duty for the portion between $800,001 and $1,000,000, with the concession phasing out so that at $1,000,000 full standard duty applies.",
+      "phase_out_description": "Concession reduces linearly from full exemption at $800,000 to full standard duty at $1,000,000."
+    },
+    "above_threshold": {
+      "threshold": 1000000,
+      "description": "Above $1,000,000, full standard transfer duty applies with no concession."
+    },
+    "eligibility": {
+      "all_must_apply": [
+        "Never owned residential property in Australia (previous ownership anywhere in Australia disqualifies)",
+        "At least one applicant must be an Australian citizen or permanent resident",
+        "Must occupy the property as principal place of residence within 12 months of settlement",
+        "Must reside in the property for at least 6 continuous months",
+        "Purchaser must be a natural person (not a company or trust)",
+        "Must be 18 years of age or older"
+      ],
+      "property_requirements": [
+        "Must be an existing home, new home, or vacant land",
+        "For vacant land, the value must not exceed $450,000 for full exemption, $450,001-$600,000 for concessional rate"
+      ],
+      "other_notes": "If more than one purchaser, all must satisfy eligibility. Eligibility is assessed at the date of contract."
+    }
+  },
+  "worked_examples": [
+    {
+      "example_id": "EX-01",
+      "description": "First home buyer purchasing an existing home at $750,000",
+      "scenario": "First home buyer, existing dwelling, FHBAS applies",
+      "property_price": 750000,
+      "buyer_type": "first_home_buyer",
+      "standard_duty_calculation": "Bracket SD-05: $10,440 + (($750,000 - $351,000) × 0.045) = $10,440 + $17,955 = $28,395",
+      "concession_applied": true,
+      "duty_after_concession": 0,
+      "savings": 28395,
+      "steps": [
+        "Property price $750,000 falls within FHBAS full exemption threshold ($800,000 or less)",
+        "Standard duty would be $28,395 under bracket SD-05",
+        "FHBAS full exemption reduces duty to $0",
+        "Buyer saves $28,395 in stamp duty"
+      ]
+    },
+    {
+      "example_id": "EX-02",
+      "description": "First home buyer purchasing at $920,000 (concessional bracket)",
+      "scenario": "First home buyer, existing dwelling, FHBAS concessional rate applies",
+      "property_price": 920000,
+      "buyer_type": "first_home_buyer",
+      "standard_duty_calculation": "Bracket SD-05: $10,440 + (($920,000 - $351,000) × 0.045) = $10,440 + $25,605 = $36,045",
+      "concession_applied": true,
+      "duty_after_concession": 9011.25,
+      "savings": 27033.75,
+      "steps": [
+        "Property price $920,000 falls in FHBAS concessional bracket ($800,001 to $1,000,000)",
+        "Standard duty calculated at $36,045 under bracket SD-05",
+        "Concessional rate applies: duty is approximately 25% of the way between exemption and full duty",
+        "Concessional duty of approximately $9,011 applies",
+        "Buyer saves approximately $27,034 compared to full standard duty"
+      ]
+    },
+    {
+      "example_id": "EX-03",
+      "description": "Foreign purchaser buying investment property at $1,500,000",
+      "scenario": "Non-resident foreign investor, no FHB eligibility",
+      "property_price": 1500000,
+      "buyer_type": "foreign_purchaser",
+      "standard_duty_calculation": "Bracket SD-05: $10,440 + (($1,500,000 - $351,000) × 0.045) = $10,440 + $51,705 = $62,145",
+      "foreign_surcharge_calculation": "$1,500,000 × 0.09 = $135,000",
+      "total_duty_payable": 197145,
+      "steps": [
+        "Property price $1,500,000 falls in bracket SD-05",
+        "Standard transfer duty: $62,145",
+        "Foreign purchaser surcharge (9% from 1 Jan 2025): $135,000",
+        "Total duty payable: $62,145 + $135,000 = $197,145",
+        "Duty represents 13.14% of the property purchase price"
+      ]
+    }
+  ]
+}

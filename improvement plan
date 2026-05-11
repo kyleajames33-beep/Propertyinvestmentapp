@@ -1,0 +1,439 @@
+
+
+zfasdfsdfKIMI
+Kimi Code
+hey you are in the files for a property app, i want to make this an app where people go to learn all about the process of buying a property can you have a look at it please and give me a full audit and a scoer out of ten for 1cotnet, 2flow, 3design 4- emngagement, 5 - likilhood of refferrals craeted 6- monetization, 7- overall idea 8 overall execution so far
+
+K
+Kimi
+
+Thinking
+I'll explore the project thoroughly to give you a comprehensive audit. Let me investigate the codebase in parallel.
+
+
+Agent
+6 steps
+
+Agent
+6 steps
+
+Thinking
+Let me look at a few key implementation files to assess design and execution quality more deeply.
+
+
+ReadFile
+App.tsx
+
+ReadFile
+HomePage.tsx
+
+ReadFile
+index.css
+
+ReadFile
+Layout.tsx
+
+Thinking
+
+ReadFile
+ProfessionalsPage.tsx
+
+ReadFile
+ReferralCTA.tsx
+
+ReadFile
+ExitIntentPopup.tsx
+
+Shell
+cd app && npm run build 2>&1
+
+Thinking
+
+Shell
+cd app; npm run build 2>&1
+
+ReadFile
+01-fhb-oo.md
+
+ReadFile
+StampDutyCalculator.tsx
+
+Thinking
+Now I have a deep understanding of the project. Here's my full audit:
+
+PropertyPath — Full Audit
+What You've Built
+PropertyPath is an educational web app guiding NSW property buyers through an 8-stage purchase journey. It's built on React 19 + TypeScript + Vite + Tailwind + shadcn/ui, with 23 interactive calculators, 24 persona-specific guides, a professional directory, and a warm-referral monetization model.
+
+The Scores
+1. Content — 8/10
+What's strong:
+
+150K+ words across 24 journey guides (8 stages × 3 personas), 10 reference articles, 7 question scripts, and 24 checklists. That's a serious content operation.
+Persona-aware tone — FHB content is empathetic and cautionary, investor content is analytical and direct. This shows real thought.
+Authoritative sourcing — citations from Revenue NSW, APRA, ATO, Housing Australia. Builds trust.
+Calculator accuracy — the Stamp Duty calculator uses actual 2024-25 NSW brackets, includes FHBAS exemptions, foreign purchaser surcharge, and FHOG. Same for other tools.
+General advice disclaimers are present and appropriately worded.
+Reference library is genuinely useful standalone content.
+What's holding it back:
+
+Factual errors exist — the QA report flags outdated Home Guarantee Scheme caps, oversimplified FHOG thresholds, and even VIC/QLD stamp duty references snuck into NSW content.
+Text-only delivery — no video, no audio, no embedded explainers. Property is visual; the content is not.
+Downsizer persona is hollow — barely any referral CTAs, lighter content. It's an afterthought.
+No "content freshness" signals — no "last updated" dates visible to users, no "this policy changed in 2025" callouts.
+2. Flow — 6.5/10
+What's strong:
+
+Logical 8-stage architecture from Strategy → Settlement. Easy to understand.
+Persona selection on entry gives users a tailored path.
+Contextual referral CTAs appear at the right moments (e.g., building inspector CTA appears in Inspection stage).
+Command search is a nice power-user feature.
+Breadcrumbs on journey pages help orientation.
+Lazy loading keeps initial load fast.
+What's holding it back:
+
+No progress persistence — close the tab and you're back at square one. No localStorage, no accounts, no "resume where you left off."
+No guided sequence — users can jump to Stage 8 (Settlement) without reading Stage 1. An education app should scaffold learning, not just present a library.
+Checklists don't save state — tick boxes reset on refresh. This kills utility.
+No "next step" nudges — finishing a stage doesn't push you to the next one.
+Calculator results aren't saveable or shareable — users lose their work immediately.
+3. Design — 6/10
+What's strong:
+
+Clean and professional — shadcn/ui gives you a solid, consistent component language.
+Custom design system — the HSC-inspired callout boxes, formula panels, worked examples, and key concept cards are distinctive and educationally effective.
+Good responsive behavior — mobile nav, grid breakpoints, readable typography at all sizes.
+Color logic — amber for warnings, teal for tips, navy for authority. Consistent.
+What's holding it back:
+
+Utterly forgettable visually — it looks like every other Tailwind + shadcn startup template. No brand personality, no photography, no illustrations, no emotional warmth.
+Hero sections are walls of text — "Buy property with confidence" over a navy gradient is generic. Where are the people? The homes? The relief of getting keys?
+Too corporate for the audience — first home buyers are anxious, excited, overwhelmed. The clinical navy-and-white aesthetic doesn't meet them emotionally.
+No visual journey progress — a progress bar, a roadmap graphic, or a "you are here" indicator would massively help orientation.
+Trust indicator misfire — "150K+ words of content" is not a user benefit. Users don't care how much you wrote.
+4. Engagement — 5.5/10
+What's strong:
+
+23 calculators — this is your engagement engine. Borrowing power, stamp duty, rent vs buy, investment cashflow, life simulator. They work and they're useful.
+Exit intent popup — smartly captures emails before users leave.
+Free strategy call — low-friction entry point.
+Interactive checklists and question scripts — practical tools users can take to meetings.
+What's holding it back:
+
+No gamification or progress mechanics — no badges for completing stages, no streaks, no "X% journey complete." Users need dopamine hits to keep going through 8 stages.
+No community — property buying is social. No comments, no forums, no "see what others are asking."
+No knowledge checks — no quizzes to reinforce learning. No "test your understanding" moments.
+No sharing — can't share calculator results, can't send a checklist to a partner, can't bookmark a stage.
+Passive reading experience — the journey content is markdown rendered as text. No accordion expandables, no "read more" reveals, no interactive scenarios.
+No re-engagement mechanism — captured emails go nowhere. No drip campaign, no "here's what's next" emails.
+5. Likelihood of Referrals Created — 4/10
+What's strong:
+
+Contextual referral timing — CTAs appear when users are primed (e.g., after learning about borrowing power, a mortgage broker CTA appears).
+3 copy variants (soft/medium/direct) show sophisticated conversion thinking.
+26 mapped touchpoints across stages and personas.
+Question scripts make users feel prepared to speak to professionals, reducing friction.
+Transparent disclosure builds trust.
+What's holding it back:
+
+No viral loop at all — users have zero incentive to tell friends about PropertyPath. No "share your borrowing power result," no "refer a friend and get the premium toolkit," no "invite your partner to collaborate on this checklist."
+No social proof — no testimonials, no success stories, no "10,000 NSW buyers guided." Cold traffic won't convert without proof.
+No user referral program — the app generates referrals to professionals but doesn't generate referrals of new users. This is a massive missed growth lever.
+Professional directory has fake data — only 2 fictional partner examples exist in the schema. Users will smell this immediately.
+Forms don't actually submit — they just show a "Request sent!" screen. No backend, no actual introduction, no follow-up.
+6. Monetization — 4/10
+What's strong:
+
+Clear model — warm referral fees from professional introductions. Simple, aligned with user value.
+Multiple lead capture points — inline CTAs, professional directory, strategy call booking, exit intent popup, toolkit download.
+Lead qualification — stage- and persona-specific forms capture relevant context.
+Disclosure compliance — ASIC-aware language, though still needing legal review.
+What's holding it back:
+
+Single revenue stream — if referral partners don't convert or don't pay, the business dies. No diversification.
+No premium tier — no paid course, no 1-on-1 coaching upsell, no "Pro" features.
+No affiliate revenue — no links to comparison sites, no mortgage calculator pre-fill partnerships.
+No data monetization — anonymized buyer sentiment, suburb interest heatmaps, deposit savings trends. All untapped.
+Email list is unmonetized — captured emails have no attached revenue model.
+No partners actually exist yet — the entire monetization plan depends on a partner network that is currently fictional.
+7. Overall Idea — 7/10
+What's strong:
+
+Real problem, high stakes — property buying is the biggest financial decision most people make, and the information is fragmented, biased, or jargon-heavy.
+"Educate first, refer second" builds trust rather than extracting value immediately. Smart positioning.
+NSW focus allows depth that national competitors can't match.
+Persona framework is genuinely useful — a first home buyer and an experienced investor need completely different guidance.
+8-stage structure is comprehensive and memorable.
+Well-timed — market volatility, rate uncertainty, and scheme changes create demand for guidance.
+What's holding it back:
+
+Competes with free — Revenue NSW, MoneySmart, REA, Domain, and dozens of mortgage brokers already publish guides. Your differentiation is thin without the partner network.
+No moat — content can be copied. Calculators can be replicated. The only defensible asset is the professional network and brand trust.
+Small TAM — NSW-only, English-only, web-only. Even with expansion plans, you're starting in a narrow lane.
+8. Overall Execution So Far — 6/10
+What's strong:
+
+Content production is outstanding — the volume, quality, and structure of the written content is the best part of this project. Someone thought deeply about every stage.
+Frontend is solid — React + TypeScript + shadcn is a good stack choice. Components are well-organized. Calculators work.
+Planning documentation is thorough — specs, user flows, referral touchpoints, compliance templates. Shows professional product thinking.
+Design system is implemented — the custom CSS classes, callout variants, and content cards show care.
+What's holding it back:
+
+No backend infrastructure — forms don't submit, no database, no user accounts, no CMS. It's a frontend prototype.
+No actual partner network — the entire business model depends on relationships that don't exist yet.
+No analytics or tracking — no Google Analytics, no Hotjar, no funnel tracking. Flying blind.
+No SEO implementation — no meta descriptions, no structured data, no sitemap generation. A content site without SEO is a tree falling in the forest.
+No testing — no unit tests, no e2e tests, no accessibility audit.
+Build and compliance gaps — content accuracy issues, 22 legal review flags, missing JSON data files.
+HashRouter — suggests static hosting. Fine for MVP, but limits dynamic features.
+Summary Table
+Category	Score	Verdict
+1. Content	8/10	Excellent volume and structure, needs accuracy cleanup and multimedia
+2. Flow	6.5/10	Logical but passive; needs progress tracking and guided sequencing
+3. Design	6/10	Clean but forgettable; needs warmth and brand personality
+4. Engagement	5.5/10	Calculators are great, but no gamification, community, or stickiness
+5. Likelihood of Referrals Created	4/10	Good professional referral infrastructure, zero user viral loop
+6. Monetization	4/10	Clear model, singular and unproven; no partners yet
+7. Overall Idea	7/10	Solid, timely, well-scoped; thin differentiation without network
+8. Overall Execution So Far	6/10	Impressive content + frontend prototype; no backend, partners, or revenue
+Total: 47/80
+
+The One-Sentence Verdict
+You've built an impressive content engine wrapped in a clean frontend, but it's still a prototype masquerading as a business — the partners don't exist, the forms don't send, and there's no mechanism for users to spread the word.
+
+Highest-Impact Next Steps
+Make checklists and calculator results persist (localStorage minimum) — instant utility boost.
+Add a "Share this result" button to every calculator — your only viral loop right now.
+Fix the factual errors — wrong scheme caps kill trust instantly.
+Sign 3-5 real professional partners — the entire model depends on this.
+Replace the fake partner data — even 3 real profiles is better than 8 fake ones.
+Add a simple progress bar to the journey — "3 of 8 stages complete" increases completion rates dramatically.
+ok with that in mind i need your comphrenensive recomendations to improve all those scores up to a ten
+
+K
+Kimi
+
+Thinking
+Here is your comprehensive roadmap to take every score to a 10/10. I've organized this by category with specific, actionable recommendations — quick wins you can ship this week, and strategic builds that require more investment.
+
+The 10/10 Roadmap for PropertyPath
+1. CONTENT: 8/10 → 10/10
+What 10/10 looks like
+Netflix-level educational content: multi-format, perfectly accurate, personalized in real-time, updated automatically, and impossible to replicate because it combines proprietary data, expert voices, and user-generated insights.
+
+The Action Plan
+Quick Wins (This Week)
+
+Fix every factual error flagged in the QA report. Outdated scheme caps are trust-killers. Set a monthly content audit reminder.
+Add "Last Updated" badges to every article and calculator. Visible freshness signals = credibility.
+Create downloadable PDFs for each stage guide and checklist. Users want to save, print, and take these to inspections. Instant value add.
+Short-Term (Next 4 Weeks)
+
+Add video explainers — even simple 2-3 min Loom-style videos for each stage. "Here's how stamp duty actually works" with screen recording. You don't need production quality; authenticity beats polish in property.
+Audio narration — offer a "Listen to this stage" button. Property buyers consume content while commuting. Use a text-to-speech API (ElevenLabs) or record yourself.
+Interactive decision trees embedded in content — "Are you ready to buy?" → 5 questions → personalized next step. Turn passive reading into active engagement.
+Expert quote cards — interview 3-5 real mortgage brokers/conveyancers. Pull 1-2 sentence quotes into the content. "Sarah, a Sydney mortgage broker, says..." This is cheap to produce and impossible for competitors to copy.
+Strategic (Next 3 Months)
+
+Live data integration — pull current RBA cash rate, average Sydney mortgage rates, median suburb prices via APIs. Static calculators feel dead; live data feels alive.
+User-generated Q&A — let users ask questions on each stage page. Answer publicly. This becomes an SEO goldmine over time.
+State expansion engine — build content as structured data (JSON + templates) so you can generate VIC/QLD variants by swapping out bracket tables and scheme names. Don't write 24 new markdown files; template them.
+AI content assistant — "Ask anything about this stage." A RAG chatbot over your content. Hugely engaging, massively differentiating.
+2. FLOW: 6.5/10 → 10/10
+What 10/10 looks like
+The app remembers everything, guides without being annoying, adapts to the user's pace, and makes resuming effortless. It feels like a personal property concierge, not a website.
+
+The Action Plan
+Quick Wins (This Week)
+
+localStorage persistence — save checklist states, calculator inputs, and last-read stage. This alone transforms the experience.
+"Continue your journey" hero card — when returning users hit the homepage, show: "You left off at Stage 3: Market Research. 25 minutes to complete." One-click resume.
+Bookmark stages — a simple heart icon. Saved items appear in a "My Saved" page.
+Short-Term (Next 4 Weeks)
+
+My Property Profile — a simple modal asking 5 questions on first visit: budget range, target suburb, buyer type, timeline, deposit saved. Pre-fill every calculator with these answers. This is the single biggest flow improvement you can make.
+Smart stage recommendations — based on profile, skip irrelevant content. If they have no deposit, emphasize Stage 1-2. If they're pre-approved, jump to Stage 4.
+Calculator → Journey linking — every calculator result should say: "Based on this result, here's what to read next" with a deep link.
+Progress indicator — a persistent top bar or sidebar showing "Stage 3 of 8" with a percentage. Property buyers need to see forward momentum.
+Strategic (Next 3 Months)
+
+User accounts (Clerk/Supabase Auth) — progress syncs across devices. Saved calculators, bookmarks, checklist history.
+Guided path with unlocks — optional "strict mode" where Stage 2 unlocks after completing Stage 1 checklist. Gamifies completion without forcing it.
+Email drip triggered by progress — "You completed Strategy. Here's what Finance Prep covers." Drip content based on their actual journey, not generic blasts.
+Couples/Co-buyer mode — invite a partner via link. Both see the same checklists, can leave comments, get notified when the other completes a task. This is a hidden viral loop.
+3. DESIGN: 6/10 → 10/10
+What 10/10 looks like
+Warm, trustworthy, and emotionally intelligent. It doesn't look like a SaaS tool — it looks like the guide you wish you had when you bought your first home. Every interaction feels considered and delightful.
+
+The Action Plan
+Quick Wins (This Week)
+
+Replace the navy hero gradient with warm, property-focused imagery. Even Unsplash photos of Sydney streets, open homes, or key handovers. The current dark gradient screams "fintech," not "home."
+Add a brand color with warmth — terracotta, sage green, warm sand. Property is earthy and emotional. Navy + slate is cold.
+Typography pairing — keep the serif for headings (good choice), but use a warmer, more human sans-serif for body text. Consider Inter or Geist over the current system font stack.
+Micro-interactions — number counters that animate in calculators, smooth page transitions, hover lift on cards. These details make the app feel expensive.
+Short-Term (Next 4 Weeks)
+
+Custom illustrations — commission or buy a set of property-themed illustrations (inspection, contract signing, key handover). Dribbble/Blush have affordable options. Replace generic Lucide icons on hero sections.
+Animated journey map — a visual 8-step roadmap on the homepage. Users click each stage to see a preview. Much more engaging than a text list.
+Dark mode — easy win with your CSS variables. Property buyers browse at night after work.
+Empty states with personality — "No checklists completed yet. Let's change that." with a small illustration. Never show blank screens.
+Strategic (Next 3 Months)
+
+Brand character/mascot — a friendly guide character (even simple) that appears in callouts. "Pathy says: Don't skip the building inspection!" Sounds cheesy but builds emotional connection.
+Before/after interactive sliders for renovation calculators.
+Cinematic scroll experience on the homepage — as you scroll, the 8 stages animate in. Not overdone, but memorable.
+Accessibility audit — WCAG 2.1 AA compliance. Proper focus states, alt text, color contrast. A 10/10 design is inclusive.
+4. ENGAGEMENT: 5.5/10 → 10/10
+What 10/10 looks like
+Users check the app daily. They feel a sense of accomplishment, see their progress, get nudges at the right times, and feel part of a community of buyers going through the same thing.
+
+The Action Plan
+Quick Wins (This Week)
+
+Confetti on stage completion — when a user checks every box on a checklist, trigger a small celebration. Dopamine is free.
+"Share your result" on every calculator — generate a clean social image (using html2canvas) showing "My borrowing power: $680,000" with PropertyPath branding. Users post to Instagram/Facebook. Free marketing.
+Email capture with value — replace generic "grab the toolkit" with specific offers: "Email me my Stamp Duty calculation" or "Send this checklist to my inbox."
+Short-Term (Next 4 Weeks)
+
+Badge system — "First Checklist Complete," "Calculator Pro," "Stage Master," "Property Ready." Display badges on a profile page.
+Quiz mode — 3-5 questions at the end of each stage. "Test your knowledge." Immediate feedback. People love proving they learned something.
+Weekly challenge emails — "This week: Calculate your true deposit goal." Single CTA, clear action. Not a newsletter — a challenge.
+Property diary — a simple notes field on each stage. "Saw 3 properties this weekend. Liked the second one." Over time, this becomes a valuable personal record.
+Strategic (Next 3 Months)
+
+Community/Forum — even a simple embedded Discord or Circle.so integration. "NSW First Home Buyers — March 2026 Cohort." The emotional support is as valuable as the information.
+Expert AMAs — monthly live Q&A with a mortgage broker or conveyancer. Record and embed in relevant stages.
+Push notifications — "Your target suburb's median price dropped 2% this month." Or "You haven't checked Stage 4 in a week. 15 minutes to go."
+Personalized market alerts — based on their saved suburbs and budget, email when relevant schemes change or rates move.
+Collaborative checklists — share a checklist with your partner or buyer's agent. They see updates in real-time.
+5. LIKELIHOOD OF REFERRALS CREATED: 4/10 → 10/10
+What 10/10 looks like
+Every user becomes an advocate. They share calculator results, invite their partner, tell friends about the checklist, and post about their "property journey" using your tools. Growth is organic and compounding.
+
+The Action Plan
+Quick Wins (This Week)
+
+Add "Share" buttons everywhere — calculators, checklists, stage completions. Use Web Share API on mobile.
+Refer-a-friend program — "Give a free strategy call, get a free strategy call." Or: "Invite a friend, unlock the Premium Toolkit." Simple, trackable.
+Couples collaboration — "Buying with someone? Invite them to plan together." This is the most natural viral loop in property.
+Short-Term (Next 4 Weeks)
+
+Social proof engine — collect testimonials at stage completion: "How confident do you feel now? (1-10)." Turn 8+ scores into quotes: "I feel 3x more confident after Stage 2." Display these everywhere.
+Case studies — interview 3 users who completed their purchase using PropertyPath. "How Sarah bought her first home in Parramatta." These are conversion and referral machines.
+Embed widgets — let real estate blogs embed your Stamp Duty calculator or Rent vs Buy tool. "Powered by PropertyPath" with a link back. Inbound links + brand awareness.
+Influencer partnerships — reach out to 5 property TikTokers/Instagram accounts with 10K-50K followers. Offer them exclusive access to your tools for a review.
+Strategic (Next 3 Months)
+
+Viral calculator campaigns — "How much stamp duty will YOU pay in 2026?" Shareable landing page. Trends on social when policy changes.
+Professional co-referral — mortgage brokers and buyer's agents refer their clients to PropertyPath as "homework." You become the education layer for the industry. This requires partner relationships but is the ultimate B2B2C loop.
+User-generated content campaigns — "Post your PropertyPath journey progress and tag us." Feature users on social. Build belonging.
+Network effects — as more users join, you generate anonymized market insights. "PropertyPath users in Western Sydney are saving 15% more deposit this quarter." Journalists quote you. You become a data authority.
+6. MONETIZATION: 4/10 → 10/10
+What 10/10 looks like
+Multiple revenue streams, each validated by real user behavior. The free tier is genuinely useful; the premium tier is irresistible. Partners pay to be featured because the lead quality is exceptional. Revenue is predictable and growing.
+
+The Action Plan
+Quick Wins (This Week)
+
+Add affiliate links — link to comparison sites, insurance providers, moving companies. Disclose transparently. Even small revenue proves the model.
+Premium toolkit — package your best PDFs, checklists, and a "property purchase planner" spreadsheet. Sell for $29. Test demand before building features.
+Short-Term (Next 4 Weeks)
+
+Launch "PropertyPath Pro" — 
+12/monthor99/year:
+Save unlimited calculator scenarios
+Export all checklists as PDFs
+Advanced calculators (portfolio modeling, DSR heatmap)
+Priority professional matching
+Exclusive monthly market report
+Ad-free experience
+Strategy call upsell — free 15-min call → paid 1-hour deep dive ($149) with a property strategist. Test if anyone pays.
+Partner onboarding — sign 5 real professionals. Negotiate referral fees: 
+150permortgagebrokerlead,100 per conveyancer lead. Document the agreements.
+Sponsored tools — "This calculator brought to you by [Lender Name]." Native sponsorship, not banner ads. Much higher value.
+Strategic (Next 3 Months)
+
+Professional subscription tier — mortgage brokers and buyer's agents pay $99/month to be featured, access lead dashboard, and get analytics on buyer behavior. They become your customers too.
+White-label licensing — mortgage brokers pay $500/month to embed PropertyPath on their website as "client education portal." Huge B2B opportunity.
+Data products — sell anonymized buyer sentiment reports to property developers and real estate agencies. "What first home buyers are worried about in Q2 2026."
+Courses — "The First Home Buyer Masterclass." 6 video modules + worksheets + live Q&A. $199. High margin, builds authority.
+Concierge service — $299 for done-for-you professional matching + document review + settlement timeline management. Premium human layer on top of digital.
+7. OVERALL IDEA: 7/10 → 10/10
+What 10/10 looks like
+You don't just educate property buyers — you become the operating system for property purchases. Every buyer in Australia starts their journey on PropertyPath. Professionals use your data. Journalists cite your insights. The idea has a defensible moat.
+
+The Action Plan
+Reframe the positioning
+
+Stop saying "educational web app." Start saying "Australia's property purchase operating system."
+The 8-stage framework becomes your framework — trademark it. "The PropertyPath Method™."
+You're not competing with REA or MoneySmart. You're the layer between research and action.
+Build the moat
+
+Data moat — every calculator submission, every checklist completion, every suburb search is data nobody else has. Aggregate it. "PropertyPath Buyer Confidence Index."
+Network moat — the professional network becomes self-reinforcing. More buyers → more professionals want in → better matches → more buyers.
+Trust moat — transparent disclosures, verified reviews, no pay-to-play hidden rankings. Be the trusted intermediary.
+Expand the vision
+
+Post-purchase — refinancing guide, renovation ROI, property management. The journey doesn't end at settlement.
+B2B reverse play — professionals use PropertyPath to educate their own clients. You become infrastructure.
+International — NZ and UK have similar property buying pain points. The model travels.
+8. OVERALL EXECUTION: 6/10 → 10/10
+What 10/10 looks like
+Production-grade, scalable, compliant, fast, and reliable. Forms actually submit. Revenue actually flows. The app never breaks. Users trust it with their data.
+
+The Action Plan
+Immediate (This Week)
+
+Fix the build — ensure TypeScript compiles cleanly. Add a build check to your workflow.
+Connect forms to a backend — Basin, Formspree, or Supabase Edge Functions. Every "Request sent!" screen must actually send something.
+Add analytics — Mixpanel or PostHog for funnel tracking. Track: stage starts, calculator uses, CTA clicks, form submissions.
+Short-Term (Next 4 Weeks)
+
+Database layer (Supabase or Firebase) — user accounts, saved calculations, checklist state, form submissions.
+SEO implementation — React Helmet Async for meta titles/descriptions. Generate sitemap.xml. Add structured data (FAQ, HowTo) to reference articles.
+Performance audit — Lighthouse 90+. Optimize images, reduce JS bundle. The calculator pages should load in <2s.
+Testing — Playwright for e2e (critical paths: signup → calculator → CTA). Vitest for unit tests on calculator logic.
+CI/CD — GitHub Actions that run tests and build on every PR.
+Strategic (Next 3 Months)
+
+Legal review — actually engage a lawyer to review the 22 compliance flags. This is non-negotiable before handling real money or real leads.
+Security hardening — CSP headers, rate limiting on forms, input sanitization.
+SSR or prerendering — for SEO. Consider Next.js migration or Vite prerender plugin. HashRouter kills SEO.
+A/B testing infrastructure — CTA copy, pricing, landing page variants. You can't optimize what you don't measure.
+Partner CRM integration — when a user requests a broker intro, the data flows into the broker's CRM (via Zapier or direct API). This is what makes the business real.
+Implementation Priority Matrix
+Priority	What	Impact	Effort	Timeline
+🔴 P0	Fix factual errors + legal review	Trust	Medium	1 week
+🔴 P0	Connect forms to real backend	Revenue	Low	3 days
+🔴 P0	localStorage persistence (checklists, progress)	Engagement	Low	2 days
+🟡 P1	"My Property Profile" + calculator pre-fill	Flow	Medium	1 week
+🟡 P1	Shareable calculator results	Referrals	Low	3 days
+🟡 P1	Add analytics + SEO basics	Growth	Medium	1 week
+🟡 P1	Sign 3-5 real professional partners	Monetization	High	2-4 weeks
+🟢 P2	Video explainers + audio narration	Content	Medium	2-3 weeks
+🟢 P2	Badge system + progress tracking	Engagement	Medium	1-2 weeks
+🟢 P2	PropertyPath Pro premium tier	Monetization	Medium	2-3 weeks
+🔵 P3	User accounts + cross-device sync	Flow	High	1 month
+🔵 P3	Community/forum	Engagement	High	1 month
+🔵 P3	White-label / B2B offering	Monetization	High	2-3 months
+What NOT To Do
+Don't build native apps yet — your audience is on web. The PWA you have is sufficient.
+Don't expand to other states until NSW is flawless — depth beats breadth.
+Don't add a chatbot that hallucinates — if you add AI, use RAG over your content only.
+Don't paywall everything — the free tier must remain genuinely useful. Premium is for convenience and power users.
+Don't fake social proof — remove the fictional partner examples immediately. 3 real partners beat 8 fake ones.
+The Honest Truth
+Right now you have a ** Category A content engine** wrapped in a Category B frontend with a Category D business backend.
+
+The fastest path to 10/10 is:
+
+Make the forms work (3 days)
+Save user progress (2 days)
+Sign 3 real partners (2 weeks)
+Add shareable calculator results (3 days)
+Those four things transform you from a prototype into a real business. Everything else is optimization.
+
+
+Ask Kimi Code... (/ commands · @ files · Alt+K code)

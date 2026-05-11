@@ -1,0 +1,13 @@
+/* TEAM */
+Product: PropertyPath
+Site: https://propertypath.com.au
+Location: NSW, Australia
+
+/* THANKS */
+NSW Property Buyers
+
+/* SITE */
+Last update: 2026/04/28
+Standards: HTML5, CSS3, ES2022
+Components: React, Tailwind CSS, shadcn/ui
+Software: Vite, TypeScript

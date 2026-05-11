@@ -1,0 +1,62 @@
+{
+  "_schema_version": "1.0",
+  "_notes": "Disclaimer template library for the Australian property guidance platform. All templates support placeholder substitution for {{platform_name}}, {{date}}, and {{professional_type}}. Templates are organised by disclaimer type and length variant. Length targets are approximate. All disclaimers should be reviewed by legal counsel before deployment. These templates are designed for an information and referral platform and do not constitute legal advice.",
+  "metadata": {
+    "version": "1.0",
+    "jurisdiction": "Australia (NSW primary)",
+    "last_reviewed": "2025-01-15",
+    "legal_review_status": "Pending - must be reviewed by qualified Australian legal practitioner before production use.",
+    "placeholder_variables": {
+      "{{platform_name}}": "Name of the platform",
+      "{{date}}": "Current date for time-sensitive disclosures",
+      "{{professional_type}}": "Type of professional being referred (e.g., mortgage broker, conveyancer)",
+      "{{product_name}}": "Name of specific financial product referenced",
+      "{{lender_name}}": "Name of lender referenced"
+    }
+  },
+  "disclaimers": {
+    "general_advice": {
+      "description": "General advice disclaimer for educational and informational content",
+      "variants": {
+        "short": "{{platform_name}} provides general information only and does not consider your personal circumstances. This is not personal advice. Please seek professional advice before making financial decisions.",
+        "standard": "The information provided on {{platform_name}} is general in nature and does not take into account your individual objectives, financial situation, or needs. It is not intended to be, and should not be construed as, personal financial advice. Before acting on any information, you should consider whether it is appropriate for your circumstances and seek independent professional advice from a qualified Australian financial adviser, mortgage broker, or other relevant professional. Past performance is not indicative of future results.",
+        "expanded": "The content, tools, calculators, and guidance provided on {{platform_name}} are for educational and informational purposes only and do not constitute personal financial advice. We do not take into account your individual objectives, financial situation, needs, risk tolerance, or circumstances. The information may not be suitable for your specific situation and should not be relied upon as a substitute for independent professional advice. We recommend that you consult with a qualified Australian financial adviser, mortgage broker, tax practitioner, or legal professional who can assess your personal circumstances before you make any decision relating to property purchase, finance, investment, or taxation. References to specific products, lenders, or strategies do not constitute a recommendation or endorsement. {{platform_name}} accepts no responsibility for any loss or damage arising from reliance on the information provided. Information is current as at {{date}} and may change without notice."
+      }
+    },
+    "financial_product": {
+      "description": "Disclaimer for content referencing financial products (loans, insurance, superannuation)",
+      "variants": {
+        "short": "This content refers to financial products. It does not constitute a recommendation or credit quote. Comparison rates and terms are indicative only. Always read the product disclosure statement and seek personal advice.",
+        "standard": "References to financial products on {{platform_name}} (including home loans, investment loans, insurance, and superannuation products) are for comparison and educational purposes only. They do not constitute a recommendation, credit proposal, credit quote, or offer of credit. Interest rates, fees, and terms shown are indicative and subject to change by lenders without notice. Not all products are available through all lenders. Your actual eligibility, interest rate, and loan terms will depend on your individual circumstances and the lender's assessment criteria. Always obtain and read the relevant Product Disclosure Statement (PDS), Target Market Determination (TMD), and credit proposal before making any decision. If in doubt, seek advice from a licensed mortgage broker or financial adviser.",
+        "expanded": "Any reference to financial products, loans, interest rates, fees, or lending criteria on {{platform_name}} is strictly for educational and comparative purposes. We do not provide credit assistance, credit quotes, or credit proposals under the National Consumer Credit Protection Act 2009 (Cth). Interest rates, product features, fees, and lending policies displayed are indicative, sourced from publicly available information, and subject to change without notice. Lenders may change rates, withdraw products, or amend terms at any time. Your actual eligibility, the interest rate offered, and specific loan terms will depend on the lender's assessment of your individual circumstances including your income, credit history, deposit amount, and security property. Not all products are available in all circumstances. Before applying for any financial product, you should obtain and carefully read the relevant Product Disclosure Statement (PDS), Target Market Determination (TMD), loan contract terms, and any associated documentation. If you require credit assistance, you should contact a licensed mortgage broker or lender directly. {{platform_name}} accepts no liability for any decision made or action taken in reliance on product information presented on this platform. Information current as at {{date}}."
+      }
+    },
+    "tax_advice": {
+      "description": "Disclaimer for content touching on taxation matters (stamp duty, CGT, negative gearing, depreciation)",
+      "variants": {
+        "short": "Tax information is general only and based on current legislation as at {{date}}. Tax laws change frequently. Always seek advice from a registered tax agent or accountant for your specific situation.",
+        "standard": "The tax-related information on {{platform_name}} (including stamp duty calculations, capital gains tax, negative gearing, depreciation, and superannuation contributions) is general in nature and based on Australian federal and state legislation as at {{date}}. Tax laws are complex and subject to frequent change. The information does not take into account your individual tax position, residency status, or circumstances. It is not intended to be, and should not be relied upon as, tax advice. Before making any decision that may affect your tax obligations, you should consult a registered tax agent, certified practising accountant, or the Australian Taxation Office (ATO) directly. Stamp duty calculations are estimates only; actual liability should be confirmed with Revenue NSW or a qualified conveyancer."
+      }
+    },
+    "referral_disclosure": {
+      "description": "Disclosure of referral fee arrangements (required by ASIC RG 36 and ACL)",
+      "variants": {
+        "short": "{{platform_name}} receives a referral fee if you engage a {{professional_type}} through us. This does not affect what you pay.",
+        "medium": "{{platform_name}} may receive a referral fee from the {{professional_type}} if you proceed with their services after we introduce you. This fee is paid by the professional and does not increase the cost to you. You are under no obligation to proceed. Professionals on our panel are selected based on credentials and expertise, not referral fees.",
+        "long": "Important disclosure: {{platform_name}} operates a referral arrangement with certain professional service providers, including {{professional_type}}s. If you choose to engage a professional after being introduced through our platform, {{platform_name}} may receive a referral fee or commission from that professional. This fee is paid by the professional service provider and is not an additional cost to you. The referral fee does not influence the recommendations we make; professionals are included on our panel based on their qualifications, experience, licensing status, and feedback from users. You are under no obligation to engage any professional referred through {{platform_name}}, and you are free to seek services independently. All referral arrangements comply with the Australian Consumer Law and ASIC Regulatory Guide 36. If you have any questions about our referral arrangements, please contact us or read our full disclosure statement."
+      }
+    },
+    "calculator_results": {
+      "description": "Disclaimer for all calculator outputs (stamp duty, borrowing power, deposit planner)",
+      "variants": {
+        "standard": "The results from this calculator are estimates only and should be used as a general guide. They do not constitute a quote, loan approval, or tax assessment. Actual amounts may vary depending on your individual circumstances, changes in interest rates, lender policies, government charges, and other factors. Stamp duty calculations are based on current NSW rates as at {{date}} and do not account for all possible exemptions, surcharges, or special circumstances. Borrowing capacity estimates are indicative only; actual borrowing power will depend on the lender's full assessment of your income, expenses, credit history, and other criteria. Always obtain a formal assessment from a qualified professional before making decisions based on these calculations."
+      }
+    },
+    "investment_risk": {
+      "description": "Risk warning for investment property content",
+      "variants": {
+        "standard": "Property investment carries significant risks. Property values can go down as well as up. Past performance is not indicative of future returns. Rental income is not guaranteed and may be affected by vacancies, tenant defaults, or changes in market conditions. Interest rates may rise, increasing your repayments. You should consider your ability to service debt in various interest rate scenarios. Negative gearing benefits depend on your individual tax position and current legislation, which may change. Before investing in property, seek independent advice from a licensed financial adviser, mortgage broker, tax accountant, and legal practitioner. Only invest what you can afford to lose."
+      }
+    }
+  }
+}
